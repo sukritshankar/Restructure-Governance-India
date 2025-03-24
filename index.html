@@ -1,0 +1,1857 @@
+<!--------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------->
+<!-- The HTML Code and CSS are an adaptation of the Distill Sources -->
+<!-- The JS Files are used as such from the Distill Templates -->
+<!-- This is permissible according to the Official Apache 2.0 License of Distill Pub -->
+<!--
+     * Copyright 2018 The Distill Template Authors
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+-->
+<!-- Proper attributions are at the bottom of the (rendered) page and NO CLAIM of a Custom Template is anywhere made -->
+<!--------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script>
+            window.addEventListener('WebComponentsReady', function() {
+              console.warn('WebComponentsReady');
+              const loaderTag = document.createElement('script');
+              loaderTag.src = 'https://distill.pub/template.v2.js';
+              document.head.insertBefore(loaderTag, document.head.firstChild);
+            });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.17/webcomponents-loader.js"></script>
+        <style id="distill-prerendered-styles" type="text/css">
+            html {
+              font-size: 14px;
+              line-height: 1.6em;
+              /* font-family: "Libre Franklin", "Helvetica Neue", sans-serif; */
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+              /*, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
+              text-size-adjust: 100%;
+              -ms-text-size-adjust: 100%;
+              -webkit-text-size-adjust: 100%;
+            }
+
+            @media(min-width: 768px) {
+              html {
+                font-size: 16px;
+              }
+            }
+
+            body {
+              margin: 0;
+            }
+
+            a {
+              color: #004276;
+            }
+
+            figure {
+              margin: 0;
+            }
+
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+
+            table th {
+                text-align: left;
+            }
+
+            table thead {
+              border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            table thead th {
+              padding-bottom: 0.5em;
+            }
+
+            table tbody :first-child td {
+              padding-top: 0.5em;
+            }
+
+            pre {
+              overflow: auto;
+              max-width: 100%;
+            }
+
+            p {
+              margin-top: 0;
+              margin-bottom: 1em;
+            }
+
+            sup, sub {
+              vertical-align: baseline;
+              position: relative;
+              top: -0.4em;
+              line-height: 1em;
+            }
+
+            sub {
+              top: 0.4em;
+            }
+
+            .kicker,
+            .marker {
+              font-size: 15px;
+              font-weight: 600;
+              color: rgba(0, 0, 0, 0.5);
+            }
+
+            #myBtn {
+              display: none;
+              position: fixed;
+              bottom: 20px;
+              right: 20px;
+              z-index: 99;
+              font-size: 12px;
+              border: none;
+              outline: none;
+              background-color: rgb(36,35,92);
+              color: white;
+              cursor: pointer;
+              padding: 5px;
+              border-radius: 4px;
+            }
+
+            #myBtn:hover {
+              background-color: rgb(36,35,92);
+            }
+
+
+            /* ------------------------------- */
+            /* ------------ Headline ----------*/
+            @media(min-width: 1024px) {
+              d-title h1 span {
+                display: block;
+              }
+            }
+
+            /* ------------------------------- */
+            /* ------------- Figure -----------*/
+            figure {
+              position: relative;
+              margin-bottom: 2.5em;
+              margin-top: 1.5em;
+            }
+
+            figcaption+figure {
+
+            }
+
+            figure img {
+              width: 100%;
+            }
+
+            figure svg text,
+            figure svg tspan {
+            }
+
+            figcaption,
+            .figcaption {
+              color: rgba(0, 0, 0, 0.6);
+              font-size: 12px;
+              line-height: 1.5em;
+            }
+
+            @media(min-width: 1024px) {
+            figcaption,
+            .figcaption {
+                font-size: 13px;
+              }
+            }
+
+            figure.external img {
+              background: white;
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+              padding: 18px;
+              box-sizing: border-box;
+            }
+
+            figcaption a {
+              color: rgba(0, 0, 0, 0.6);
+            }
+
+            figcaption b,
+            figcaption strong, {
+              font-weight: 600;
+              color: rgba(0, 0, 0, 1.0);
+            }
+
+            /* ------------------------------- */
+            /* ------------- Grids ------------*/
+            @supports not (display: grid) {
+              .base-grid,
+              distill-header,
+              d-title,
+              d-abstract,
+              d-article,
+              d-appendix,
+              distill-appendix,
+              d-byline,
+              d-footnote-list,
+              d-citation-list,
+              distill-footer {
+                display: block;
+                padding: 8px;
+              }
+            }
+
+            .base-grid,
+            distill-header,
+            d-title,
+            d-abstract,
+            d-article,
+            d-appendix,
+            distill-appendix,
+            d-byline,
+            d-footnote-list,
+            d-citation-list,
+            distill-footer {
+              display: grid;
+              justify-items: stretch;
+              grid-template-columns: [screen-start] 10px [page-start kicker-start text-start gutter-start middle-start] 200px 1fr 1fr 1fr 1fr 1fr 1fr 1fr [text-end page-end gutter-end kicker-end middle-end] 10px [screen-end];
+              grid-column-gap: 8px;
+            }
+
+            .grid {
+              display: grid;
+              grid-column-gap: 8px;
+            }
+
+            @media(min-width: 768px) {
+              .base-grid,
+              distill-header,
+              d-title,
+              d-abstract,
+              d-article,
+              d-appendix,
+              distill-appendix,
+              d-byline,
+              d-footnote-list,
+              d-citation-list,
+              distill-footer {
+                grid-template-columns: [screen-start] 1fr  [page-start kicker-start middle-start text-start] 200px 45px 45px 45px 45px 45px 45px 45px [ kicker-end text-end gutter-start] 45px [middle-end] 45px [page-end gutter-end] 1fr [screen-end];
+
+                grid-column-gap: 32px;
+              }
+
+              .grid {
+                grid-column-gap: 32px;
+              }
+            }
+
+            @media(min-width: 1000px) {
+              .base-grid,
+              distill-header,
+              d-title,
+              d-abstract,
+              d-article,
+              d-appendix,
+              distill-appendix,
+              d-byline,
+              d-footnote-list,
+              d-citation-list,
+              distill-footer {
+                grid-template-columns: [screen-start] 1fr  [page-start kicker-start] 50px [middle-start] 50px [text-start kicker-end] 50px 50px 50px 50px 50px 120px 120px 120px [text-end gutter-start] 50px [middle-end] 50px [page-end gutter-end] 1fr [screen-end];
+
+
+                grid-column-gap: 16px;
+              }
+
+              .grid {
+                grid-column-gap: 16px;
+              }
+            }
+
+            @media(min-width: 1180px) {
+              .base-grid,
+              distill-header,
+              d-title,
+              d-abstract,
+              d-article,
+              d-appendix,
+              distill-appendix,
+              d-byline,
+              d-footnote-list,
+              d-citation-list,
+              distill-footer {
+                grid-template-columns: [screen-start] 1fr  [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 140px 140px 140px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+
+                grid-column-gap: 16px;
+              }
+
+              .grid {
+                grid-column-gap: 16px;
+              }
+            }
+
+            .base-grid {
+              grid-column: screen;
+            }
+
+            /* ------------------------------- */
+            /* ------------- Body -------------*/
+            /* .l-body,
+            d-article > *  {
+              grid-column: text;
+            }
+
+            .l-page,
+            d-title > *,
+            d-figure {
+              grid-column: page;
+            } */
+
+            .l-gutter {
+              grid-column: gutter;
+            }
+
+            .l-text,
+            .l-body {
+              grid-column: text;
+            }
+
+            .l-page {
+              grid-column: page;
+            }
+
+            .l-body-outset {
+              grid-column: middle;
+            }
+
+            .l-page-outset {
+              grid-column: page;
+            }
+
+            .l-screen {
+              grid-column: screen;
+            }
+
+            .l-screen-inset {
+              grid-column: screen;
+              padding-left: 16px;
+              padding-left: 16px;
+            }
+
+            /* ------------------------------- */
+            /* ------------- Aside ------------*/
+
+            d-article aside {
+              grid-column: gutter;
+              font-size: 12px;
+              line-height: 1.6em;
+              color: rgba(0, 0, 0, 0.6)
+            }
+
+            @media(min-width: 768px) {
+              aside {
+                grid-column: gutter;
+              }
+
+              .side {
+                grid-column: gutter;
+              }
+            }
+
+            d-title {
+              padding: 2rem 0 1.5rem;
+              contain: layout style;
+              overflow-x: hidden;
+              text-align: center; /* Add this line to center-align the text */
+            }
+
+            @media(min-width: 768px) {
+              d-title {
+                padding: 4rem 0 1.5rem;
+                text-align: center; /* Ensure it is center-aligned for larger screens too */
+              }
+            }
+
+            d-title h1 {
+              grid-column: text;
+              font-size: 28px;
+              font-weight: 700;
+              line-height: 1.1em;
+              margin: 0 0 0.5rem;
+            }
+
+            @media(min-width: 768px) {
+              d-title h1 {
+                font-size: 35px;
+              }
+            }
+
+            d-title p {
+              font-weight: 300;
+              font-size: 1.2rem;
+              line-height: 1.55em;
+              grid-column: text;
+            }
+
+            d-title .status {
+              margin-top: 0px;
+              font-size: 12px;
+              color: #009688;
+              opacity: 0.8;
+              grid-column: kicker;
+            }
+
+            d-title .status span {
+              line-height: 1;
+              display: inline-block;
+              padding: 6px 0;
+              border-bottom: 1px solid #80cbc4;
+              font-size: 11px;
+              text-transform: uppercase;
+            }
+
+            d-byline {
+              contain: style;
+              overflow: hidden;
+              border-top: 1px solid rgba(0, 0, 0, 0.05);
+              font-size: 0.8rem;
+              line-height: 1.8em;
+              padding: 1.5rem 0;
+              min-height: 1.8em;
+            }
+
+
+            d-byline .byline {
+              grid-template-columns: 1fr 1fr;
+              grid-column: text;
+            }
+
+            @media(min-width: 768px) {
+              d-byline .byline {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+              }
+            }
+
+            d-byline .authors-affiliations {
+              grid-column-end: span 2;
+              grid-template-columns: 1fr 1fr;
+              margin-bottom: 1em;
+            }
+
+            @media(min-width: 768px) {
+              d-byline .authors-affiliations {
+                margin-bottom: 0;
+              }
+            }
+
+            d-byline h3 {
+              font-size: 0.6rem;
+              font-weight: 400;
+              color: rgba(0, 0, 0, 0.5);
+              margin: 0;
+              text-transform: uppercase;
+            }
+
+            d-byline p {
+              margin: 0;
+            }
+
+            d-byline a,
+            d-article d-byline a {
+              color: rgba(0, 0, 0, 0.8);
+              text-decoration: none;
+              border-bottom: none;
+            }
+
+            d-article d-byline a:hover {
+              text-decoration: underline;
+              border-bottom: none;
+            }
+
+            d-byline p.author {
+              font-weight: 500;
+            }
+
+            d-byline .affiliations {
+
+            }
+
+            d-article {
+              contain: layout style;
+              overflow-x: hidden;
+              border-top: 1px solid rgba(0, 0, 0, 0.1);
+              padding-top: 2rem;
+              color: rgba(0, 0, 0, 0.8);
+            }
+
+            d-article > * {
+              grid-column: text;
+            }
+
+            @media(min-width: 768px) {
+              d-article {
+                font-size: 16px;
+              }
+            }
+
+            @media(min-width: 1024px) {
+              d-article {
+                font-size: 1.06rem;
+                line-height: 1.7em;
+              }
+            }
+
+            term1 {
+               width: 100%;
+               text-align: center;
+               border-bottom: 1px solid rgba(36,35,96, 0.1);
+               line-height: 0.1em;
+               margin: 10px 0 10px;
+               font-size: 15px;
+               font-weight:300;
+               color: rgba(36,35,96, 0.8);
+               padding:0 10px;
+            }
+
+            term1 span {
+                background:rgb(251,248,245);
+                padding:0 10px;
+            }
+
+
+            term2 {
+               width: 100%;
+               text-align: center;
+               border-bottom: 1px solid rgba(36,35,96, 0.1);
+               line-height: 0.1em;
+               margin: 10px 0 10px;
+               font-size: 15px;
+               font-weight:300;
+               color: rgba(36,35,96, 0.8);
+               padding:0 10px;
+            }
+
+            term2 span {
+                background:rgb(249,251,247);
+                padding:0 10px;
+            }
+
+            /* ------------------------------- */
+            /* -------------- H2 --------------*/
+
+            d-article .marker {
+              text-decoration: none;
+              border: none;
+              counter-reset: section;
+              grid-column: kicker;
+              line-height: 1.7em;
+            }
+
+            d-article .marker:hover {
+              border: none;
+            }
+
+            d-article .marker span {
+              padding: 0 3px 4px;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+              position: relative;
+              top: 4px;
+            }
+
+            d-article .marker:hover span {
+              color: rgba(0, 0, 0, 0.7);
+              border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+            }
+
+            d-article h2 {
+              font-weight: 600;
+              font-size: 24px;
+              line-height: 1.25em;
+              margin: 2rem 0 1.5rem 0;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+              padding-bottom: 1rem;
+            }
+
+            @media(min-width: 1024px) {
+              d-article h2 {
+                font-size: 36px;
+              }
+            }
+
+            /* ------------------------------- */
+            /* -------------- H3 --------------*/
+            d-article h3 {
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 1.4em;
+              margin-bottom: 1em;
+              margin-top: 2em;
+            }
+
+            @media(min-width: 1024px) {
+              d-article h3 {
+                font-size: 20px;
+              }
+            }
+
+            /* ------------------------------- */
+            /* -------------- H4 --------------*/
+            d-article h4 {
+              font-weight: 600;
+              text-transform: uppercase;
+              font-size: 14px;
+              line-height: 1.4em;
+            }
+
+            d-article a {
+              color: inherit;
+            }
+
+            d-article p,
+            d-article ul,
+            d-article ol,
+            d-article blockquote {
+              margin-top: 0;
+              margin-bottom: 1em;
+              margin-left: 0;
+              margin-right: 0;
+            }
+
+            d-article blockquote {
+              border-left: 2px solid rgba(0, 0, 0, 0.2);
+              padding-left: 2em;
+              font-style: italic;
+              color: rgba(0, 0, 0, 0.6);
+            }
+
+            d-article a {
+              border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+              text-decoration: none;
+            }
+
+            d-article a:hover {
+              border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+            }
+
+            d-article .link {
+              text-decoration: underline;
+              cursor: pointer;
+            }
+
+            d-article ul,
+            d-article ol {
+              padding-left: 24px;
+            }
+
+            d-article li {
+              margin-bottom: 1em;
+              margin-left: 0;
+              padding-left: 0;
+            }
+
+            d-article li:last-child {
+              margin-bottom: 0;
+            }
+
+            d-article pre {
+              font-size: 14px;
+              margin-bottom: 20px;
+            }
+
+            d-article hr {
+              grid-column: screen;
+              width: 100%;
+              border: none;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+              margin-top: 60px;
+              margin-bottom: 60px;
+            }
+
+            d-article section {
+              margin-top: 60px;
+              margin-bottom: 60px;
+            }
+
+            d-article span.equation-mimic {
+              font-family: georgia;
+              font-size: 115%;
+              font-style: italic;
+            }
+
+            d-article > d-code,
+            d-article section > d-code  {
+              display: block;
+            }
+
+            d-article > d-math[block],
+            d-article section > d-math[block]  {
+              display: block;
+            }
+
+            @media (max-width: 768px) {
+              d-article > d-code,
+              d-article section > d-code,
+              d-article > d-math[block],
+              d-article section > d-math[block] {
+                  overflow-x: scroll;
+                  -ms-overflow-style: none;  // IE 10+
+                  overflow: -moz-scrollbars-none;  // Firefox
+              }
+
+              d-article > d-code::-webkit-scrollbar,
+              d-article section > d-code::-webkit-scrollbar,
+              d-article > d-math[block]::-webkit-scrollbar,
+              d-article section > d-math[block]::-webkit-scrollbar {
+                display: none;  // Safari and Chrome
+              }
+            }
+
+            d-article .citation {
+              color: #668;
+              cursor: pointer;
+            }
+
+            d-include {
+              width: auto;
+              display: block;
+            }
+
+            d-figure {
+              contain: layout style;
+            }
+
+            /* ------------------------------- */
+            /* ------------- KateX ------------*/
+            .katex, .katex-prerendered {
+              contain: style;
+              display: inline-block;
+            }
+
+            /* ------------------------------- */
+            /* ------------ Tables ------------*/
+            d-article table {
+              border-collapse: collapse;
+              margin-bottom: 1.5rem;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            }
+
+            d-article table th {
+              border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            }
+
+            d-article table td {
+              border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            d-article table tr:last-of-type td {
+              border-bottom: none;
+            }
+
+            d-article table th,
+            d-article table td {
+              font-size: 15px;
+              padding: 2px 8px;
+            }
+
+            d-article table tbody :first-child td {
+              padding-top: 2px;
+            }
+
+            span.katex-display {
+              text-align: left;
+              padding: 8px 0 8px 0;
+              margin: 0.5em 0 0.5em 1em;
+            }
+
+            span.katex {
+              -webkit-font-smoothing: antialiased;
+              color: rgba(0, 0, 0, 0.8);
+              font-size: 1.18em;
+            }
+
+            @media print {
+
+              @page {
+                size: 8in 11in;
+                @bottom-right {
+                  content: counter(page) " of " counter(pages);
+                }
+              }
+
+              html {
+                /* no general margins -- CSS Grid takes care of those */
+              }
+
+              p, code {
+                page-break-inside: avoid;
+              }
+
+              h2, h3 {
+                page-break-after: avoid;
+              }
+
+              d-header {
+                visibility: hidden;
+              }
+
+              d-footer {
+                display: none!important;
+              }
+            }
+        </style>
+        <style>
+        /* ---------------------------------------------- */
+        /* HERO LAYOUT */
+        /* ---------------------------------------------- */
+            #compare-caption {
+                grid-column: kicker;
+                border-top: solid 1px rgba(0, 0, 0, 0.1);
+                padding-top: 1rem;
+                margin-top: 0;
+            }
+
+            #compare-figure {
+                border-top: solid 1px rgba(0, 0, 0, 0.1);
+                padding-top: 1rem;
+                margin-top: 0;
+            }
+
+            #compare_play_button {
+                margin-left: 20px;
+                padding: 0 8px;
+                background-color: rgba(255, 130, 0);
+                border-radius: 4px;
+                border: none;
+                color: white;
+                height: 32px;
+                font-size: 13px;
+                text-transform: uppercase;
+                width: 100px;
+            }
+
+            #compare_play_button[disabled] {
+                opacity: 0.5;
+            }
+
+            d-title {
+                padding-bottom: 0;
+            }
+
+            figure#compare-figure {
+                grid-column: text;
+                display: grid;
+                grid-column-gap: inherit;
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                margin-bottom: 0;
+            }
+
+            #compare-figure svg {
+                width: 100%;
+                height: auto;
+            }
+
+            #compare-figure h4 {
+                margin: 0 0 0.5em 0;
+            }
+
+            #compare-figure d-math span.katex-display {
+                padding: 0;
+                margin: 0;
+            }
+
+            #cliffworld-mc > div {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                grid-gap: 20px;
+            }
+
+            figure {
+                overflow-x: scroll;
+            }
+
+            figure figcaption,
+            figure .figcaption {
+                margin-bottom: 1em;
+            }
+
+            figure .column-heading {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                padding-bottom: 8px;
+                margin: 0;
+            }
+
+            /* ------------------------------- */
+            /* ------ Pre-Existing CSS ------- */
+            #cliffworld-td {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                grid-gap: 20px;
+            }
+
+            #cliffworld-trajectories {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                grid-gap: 20px;
+            }
+
+            #cliff_iter .cell rect {
+                fill: #eee;
+            }
+
+            .cell rect {
+                fill: #eee;
+            }
+
+            .eq-grid {
+                grid-column: text-start / end;
+                padding: 10px;
+                display: grid;
+                justify-content: start;
+                grid-row-gap: 10px;
+                overflow-x: scroll;
+                margin-bottom: 1em;
+            }
+
+            .eq-grid d-math {
+                font-size: 120%;
+            }
+
+            .eq-grid figcaption d-math {
+                font-size: 100%;
+            }
+
+            .eq-grid figcaption {
+            }
+
+            .eq-grid .expansion-marker {
+                border: 1px solid #ccc;
+                border-bottom: none;
+                height: 6px;
+                width: 100%;
+                margin-top: 6px;
+                margin-bottom: 6px;
+            }
+
+            .eq-grid .faded {
+                opacity: 0.5;
+            }
+
+            svg {
+                user-select: none;
+            }
+
+            .two-column-math img {
+                margin-bottom: 1em;
+            }
+
+            @media (min-width: 768px) {
+                .two-column-math img {
+                    margin-bottom: initial;
+                }
+                .two-column-math .wrapper {
+                    margin: 0 auto;
+                    display: grid;
+                    grid-template-columns: 0.4fr 1fr;
+                    grid-auto-flow: row;
+                    grid-gap: 1em;
+                }
+            }
+        </style>
+        <style type="text/css">@import "vis/playground.css";</style>
+
+        <script src="vis/js/d3.min.js" charset="utf-8"></script>
+        <script src="vis/js/underscore.js" charset="utf-8"></script>
+        <script src="vis/js/rounding.js" charset="utf-8"></script>
+        <script src="vis/util.js" charset="utf-8"></script>
+        <script src="vis/GridWorld.js" charset="utf-8"></script>
+        <script src="vis/LearnQV.js" charset="utf-8"></script>
+        <script src="vis/compare.js" charset="utf-8"></script>
+
+        <link rel="stylesheet" href="https://distill.pub/third-party/katex/katex.min.css" crossorigin="anonymous">
+        <link rel="icon" type="image/x-icon" href="india.ico">
+        <link href="/rss.xml" rel="alternate" type="application/rss+xml" title="Articles from Distill">
+        <link rel="canonical" href="">  <!-- TODO - Put the Real Site Link after it is HOSTED -->
+
+        <title>Transforming India</title>
+        <!--  https://schema.org/Article -->
+        <meta property="description" itemprop="description" content="The Foundational Restructuring of India's Governance">
+
+        <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+        <meta property="og:type" content="article">
+        <meta property="og:title" content="Transforming India">
+        <meta property="og:description" content="The Foundational Restructuring of India's Governance">
+        <meta property="og:url" content=""> <!-- TODO - Put the Real Site Link after it is HOSTED -->
+        <meta property="og:image" content=""> <!-- TODO - Put your Photo -->
+        <meta property="og:locale" content="en_US">
+
+        <!--  https://dev.twitter.com/cards/types/summary -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Transforming India">
+        <meta name="twitter:description" content="The Foundational Restructuring of India's Governance">
+        <meta name="twitter:url" content=""> <!-- TODO - Put the Real Site Link after it is HOSTED -->
+        <meta name="twitter:image" content=""> <!-- TODO - Put your Photo -->
+        <meta name="twitter:image:width" content="560"> <!-- TODO - May need to change this depending upon the Photo -->
+        <meta name="twitter:image:height" content="295"> <!-- TODO - May need to change this depending upon the Photo -->
+
+        <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+        <!-- TODO - IF NEEDED, later include from https://distill.pub/2019/paths-perspective-on-value-learning/ -->
+    </head>
+
+    <body distill-prerendered="">
+
+            <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-chevron-up"></i>	</button>
+
+
+        <script>
+        // Get the button
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop >= 10 || document.documentElement.scrollTop >= 10) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+        <!-------------------------------------------------------->
+        <!-- We DO NOT need Distill Header here for our purpose -->
+        <!-------------------------------------------------------->
+        <d-front-matter>
+          <script type="text/json">{
+          "title": "Transforming India",
+          "description": "The Foundational Restructuring of India's Governance",
+          "katex": {
+            "strict": false,
+            "delimiters": [
+              {
+                "left": "$",
+                "right": "$",
+                "display": false
+              },
+              {
+                "left": "$$",
+                "right": "$$",
+                "display": true
+              }
+            ]
+          }
+          }</script>
+        </d-front-matter>
+
+        <!------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------->
+        <style>
+            .rounded-box-alphabets {
+                display: inline-block; /* Allows spans to wrap */
+                background-color: rgba(36,35,96, 0.1); /* Main Background */
+                color: rgb(36,35,96); /* White text */
+                font-weight: 200; /* Adjustable */
+                font-size: 16px; /* Adjustable */
+                padding: 7px 21px; /* Padding for spacing */
+                border-radius: 5px; /* Rounded edges */
+                margin: 3px; /* Spacing between spans */
+                white-space: nowrap; /* Ensures content doesn't break inside */
+                transition: background-color 0.3s ease-in-out;
+            }
+            .rounded-box-alphabets:hover {
+                background-color: rgba(36,35,96, 0.3); /* Same as default */
+                color: rgba(36,35,96,1); /* Same as default */
+            }
+            a:focus, a:active, a:visited {
+                color: inherit; /* Keeps original text color */
+                background: inherit; /* Keeps original background */
+                text-decoration: none; /* No underline */
+                outline: none; /* Removes focus outline */
+            }
+            a:focus .rounded-box-alphabets,
+            a:active .rounded-box-alphabets,
+            a:visited .rounded-box-alphabets {
+                background-color: rgba(36,35,96, 0.1);
+                color: rgba(36,35,96, 1);
+            }
+
+            .rounded-box-authors {
+                display: inline-block; /* Allows spans to wrap */
+                background-color: rgba(255,255,255, 0.1); /* Main Background */
+                color: rgba(127,92,29, 1); /* White text */
+                font-weight: 200; /* Adjustable */
+                font-size: 14px; /* Adjustable */
+                font-family: 'VT323', monospace;
+                padding: 0px 0px; /* Padding for spacing */
+                border-radius: 0px; /* Rounded edges */
+                margin: 0px; /* Spacing between spans */
+                white-space: nowrap; /* Ensures content doesn't break inside */
+            }
+            .rounded-box-authors:hover {
+                background-color: rgba(0,0,0,0); /* Same as default */
+                color: rgba(178,34,34,0.70); /* Same as default */
+            }
+
+            .bold-custom {
+                font-weight: 500; /* Adjustable */
+            }
+            .bold-custom-color {
+                font-weight: 600; /* Adjustable */
+                color: rgb(232,144,52); /* White text */
+            }
+        </style>
+        <style>
+            .authors-container {
+                display: flex; /* Flex ensures horizontal alignment */
+                justify-content: center; /* Centers the whole block */
+                align-items: center; /* Ensures vertical alignment */
+                flex-wrap: wrap; /* Allows responsiveness */
+                gap: 40px; /* Space between authors */
+                text-align: center; /* Ensures text alignment */
+                width: 100%; /* Ensures it takes full width of the parent container */
+                margin-top:20px;
+            }
+
+            .author {
+                text-align: center; /* Ensures expertise text is centered */
+                display: inline-block; /* Makes sure items are inline */
+            }
+
+            .expertise {
+                font-size: 11px;
+                font-family: 'VT323', monospace;
+                color: rgba(127,92,29, 0.5);
+                margin-top: -8px; /* Space between name and expertise */
+                display: block; /* Ensures expertise appears below the name */
+            }
+        </style>
+        <d-title style="color:rgb(36,35,96);padding-left:20px; padding-right:20px; padding-top: 60px">
+            <!-- Name -->
+            <h1>Transforming India<br/>
+                <span style="font-size: 26.5px; font-weight: 100; padding-top:0px">The Foundational Restructuring of India's Governance</span><br/>
+                <span style="font-size: 31px; font-weight: 100; padding-top:0px; margin-top:-30px">( अधिष्ठानसंयोजनम् )</span>
+            </h1>
+            <!-- <h1>The Structural Ethos <br/><span style="font-size: 31px; font-weight: 100;">( तत्त्वसंबन्धान्वेषणम् )</span></h1> -->
+            <!-- <h1>The Structural Ethos <br/><span style="font-size: 31px; font-weight: 100;">( अन्वयसंधानम् )</span></h1> -->
+
+            <!-- Authors -->
+            <p class="authors-container">
+                <span class="author">
+                    <a href="https://www.linkedin.com/in/sukritshankar" target="_blank">
+                        <span class="rounded-box-authors">Sukrit Shashi Shankar</span>
+                    </a>
+                    <br>
+                    <span class="expertise">AI,  Math, Policy</span>
+                </span>
+
+                <span class="author">
+                    <a href="https://www.linkedin.com/in/yaldashankar" target="_blank">
+                        <span class="rounded-box-authors">Yalda Shankar</span>
+                    </a>
+                    <br>
+                    <span class="expertise">AI, Design</span>
+                </span>
+            </p>
+
+            <!-- Separation Line -->
+
+            <!-- Research Theme -->
+            <p style="color:rgba(36,35,96,.8); margin-top:12px; font-weight: 200;">
+                <span style="font-size:16px; line-height:1.6; display:block; margin-bottom:25px">
+                    <span style="font-weight:600">A Foundational Framework of how India should govern</span> is presented
+                    <span class="bold-custom-color">&nbsp;Basic Necessities,</span> <span class="bold-custom-color">&nbsp;Policy Making <span style="font-weight:200">&</span> Execution,</span>
+                    <span class="bold-custom-color">&nbsp;Public Sector Efficiency</span> and <span class="bold-custom-color">&nbsp;Research <span style="font-weight:200">&</span> Innovation Ecosystems.</span>
+                    Addressing these requires a structured, dynamic approach that fosters
+                    efficiency, adaptability and citizen-driven governance.
+                    By leveraging <span class="bold-custom">technology, streamlined processes</span> and <span class="bold-custom">AI-assisted decision-making</span>,
+                    the goal is to establish a <span class="bold-custom">self-correcting, globally competitive governance system</span>
+                    that facilitates transparency, accountability and engagement at all levels.
+                    This framework acts as a <span class="bold-custom">foundational skeleton</span>, upon which
+                    <!--<span class="bold-custom">sector-specific policies</span> and -->
+                    <span class="bold-custom">focus areas under ministries</span> are further developed.
+                </span>
+
+                <a href="ministries_and_focus_areas.html" target="_blank">
+                    <span class="rounded-box-alphabets" style="border-radius: 18px;"> <b>Ministries</b> & <b>Focus Areas</b> </span>
+                </a>
+
+                <p style="color:rgba(80,152,43,1); font-size:16px; line-height:1.6; display:block; font-weight:200; margin-top:23px">
+                    Some focus areas serve as <span class="bold-custom">Essential Targets</span> &
+                    <span class="bold-custom">Structural Enablers</span>
+                    for the foundational skeleton. Strengthening these can instill <span class="bold-custom">precision in governance</span>
+                    and create a <span class="bold-custom">lasting national transformation</span>.
+                </p>
+            </p>
+
+            <!-- Small Left Panel -->
+            <!-- STRICTLY LEAVE OUT - CAUSES NUISANCE FOR RESPONSIVE HTML -->
+        </d-title>
+
+        <!------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------->
+        <!-- SHANKAR (Add) -->
+        <style>
+          .rounded-box {
+                display: inline-block; /* Allows spans to wrap */
+                background-color: rgba(40,180,99, 0.9); /* Main Background */
+                color: rgb(255,255,255); /* White text */
+                font-weight: 300; /* Adjustable */
+                font-size: 11.5px; /* Adjustable */
+                padding: 7px 13px; /* Padding for spacing */
+                border-radius: 7px; /* Rounded edges */
+                margin: 3px; /* Spacing between spans */
+            }
+            .rounded-box-odd {
+                display: inline-block; /* Allows spans to wrap */
+                background-color: rgba(232,144,52, 0.1); /* Main Background */
+                color: rgba(232,144,52, 1); /* White text */
+                font-weight: 300; /* Adjustable */
+                font-size: 11.5px; /* Adjustable */
+                padding: 7px 13px; /* Padding for spacing */
+                border-radius: 7px; /* Rounded edges */
+                margin: 3px; /* Spacing between spans */
+            }
+            .rounded-box-even {
+                display: inline-block; /* Allows spans to wrap */
+                background-color: rgba(80,152,43, .1); /* Main Background */
+                color: rgba(80,152,43, 1); /* White text */
+                font-weight: 300; /* Adjustable */
+                font-size: 11.5px; /* Adjustable */
+                padding: 7px 13px; /* Padding for spacing */
+                border-radius: 7px; /* Rounded edges */
+                margin: 3px; /* Spacing between spans */
+            }
+ 
+        </style>
+
+        <style>
+            .main_ministries_problems {
+                border-top:1px solid;
+                padding-top:7px;
+                padding-bottom:10px;
+                border-color:rgba(36,35,96, 0.6);
+                font-weight: 200; /* Adjustable */
+
+                font-size: 13px; /* Adjustable */
+
+            }
+        </style>
+
+        <style>
+            .center-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+
+            object {
+                width: 100%;  /* Makes the SVG scale with the page */
+                height: auto; /* Maintains aspect ratio */
+                max-width: 600px; /* Ensures it doesn't become too large */
+            }
+        </style>
+        <d-appendix style="border:0px;background-color:rgba(36,35,96,.01);color:rgb(61,136,137);font-size:12px; margin-top:10px; padding-top: 30px; padding-bottom:30px; padding-left:20px; padding-right:20px">
+            <!------------------------------------------------------------->
+            <!------------------------------------------------------------->
+            <!------------------------------------------------------------->
+            <!------------------------------------------------------------->
+            <div class="center-container">
+                <object id="india-map" type="image/svg+xml" data="INDIA__SKELETON.svg"></object>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    let svgObject = document.getElementById("india-map");
+
+                    svgObject.addEventListener("load", function () {
+                        let svgDoc = svgObject.contentDocument; // Access the embedded SVG document
+                        let svgRoot = svgDoc.querySelector("svg"); // Get the SVG element
+                        let paths = svgDoc.querySelectorAll("path"); // Get all path elements
+
+                        // Use a Set to track unique paths by 'd' attribute (to avoid duplicates)
+                        let uniquePaths = [];
+                        let seenPaths = new Set();
+
+                        paths.forEach(path => {
+                            let d = path.getAttribute("d"); // Get path data
+                            if (d && !seenPaths.has(d)) { // Check if we've already seen this path
+                                seenPaths.add(d);
+                                uniquePaths.push(path);
+                            }
+                        });
+
+                        // Now numbering will be correct
+                        uniquePaths.forEach((path, index) => {
+                            let bbox = path.getBBox(); // Get bounding box of the path
+                            let centerX = bbox.x + bbox.width / 2; // X position of the text circle
+                            let centerY = bbox.y - 20; // Y position slightly above the path
+
+                            // Get stroke color (default to black if not set)
+                            let pathStrokeColor = path.getAttribute("stroke") || "black";
+
+                            // Create a circle element
+                            let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                            circle.setAttribute("cx", centerX);
+                            circle.setAttribute("cy", centerY);
+                            circle.setAttribute("r", "0"); // Circle radius
+                            circle.setAttribute("fill", "rgba(253,252,253)"); // Background color
+                            circle.setAttribute("stroke", "rgba(253,252,253)"); // Border color
+                            circle.setAttribute("stroke-width", "0");
+
+                            // Create a text element inside the circle
+                            let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                            text.setAttribute("x", centerX);
+                            text.setAttribute("y", centerY + 2); // Adjust for centering text
+                            text.setAttribute("text-anchor", "middle"); // Center text horizontally
+                            text.setAttribute("dominant-baseline", "middle"); // Center text vertically
+                            text.setAttribute("fill", pathStrokeColor); // Apply path's stroke color to text
+                            text.setAttribute("font-size", "16px");
+                            text.textContent = `${index + 1}`; // Correct numbering
+
+                            // Append the circle and text to the SVG
+                            svgRoot.appendChild(circle);
+                            svgRoot.appendChild(text);
+                        });
+                    });
+                });
+            </script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    let svgObject = document.getElementById("india-map");
+
+                    svgObject.addEventListener("load", function () {
+                        let svgDoc = svgObject.contentDocument; // Access embedded SVG document
+                        let paths = svgDoc.querySelectorAll("path"); // Get all path elements
+
+                        paths.forEach(function (path, index) {
+                            path.style.cursor = "pointer"; // Make it clickable
+                            let originalStrokeWidth = path.style.strokeWidth || "2px"; // Default stroke
+                            let ghostPath = path.cloneNode(true); // Create a ghost path for hover detection
+
+                            // Style the ghost path (Invisible, Large Stroke)
+                            ghostPath.style.strokeWidth = "20px"; // Large stroke for hover detection
+                            ghostPath.style.stroke = "transparent"; // Fully transparent
+                            ghostPath.style.fill = "none"; // No fill
+                            ghostPath.style.pointerEvents = "all"; // Ensure it detects hover
+
+                            // Insert the ghost path behind the real path
+                            path.parentNode.insertBefore(ghostPath, path);
+
+                            // Hover effect (ONLY ON GHOST PATH)
+                            ghostPath.addEventListener("mouseover", function () {
+                                path.style.strokeWidth = "8px"; // Visible stroke increases on hover
+                            });
+
+                            ghostPath.addEventListener("mouseout", function () {
+                                path.style.strokeWidth = originalStrokeWidth; // Restore original stroke
+                            });
+
+                            // 🔥 Click Event: Scroll to SK-<index+1> 🔥
+                            path.addEventListener("click", function () {
+                                let targetId = `BB${index + 1}`; // Construct target ID
+                                let targetElement = document.getElementById(targetId);
+
+                                if (targetElement) {
+                                    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                                } else {
+                                    console.warn(`Element with ID ${targetId} not found.`);
+                                }
+                            });
+                        });
+                    });
+                });
+            </script>
+        </d-appendix>
+
+            <!------------------------------------------------------------->
+            <!------------------------------------------------------------->
+            <!------------------------------------------------------------->
+            <!-- [ orange1 ]  -->
+            <d-appendix style="border:0px;background-color:rgba(248,241,234,.5);font-size:12px; margin-top:0px; padding-top: 60px; padding-bottom:30px; padding-left:20px; padding-right:20px">
+                <p class="main_ministries_tribal_affairs" id= "BB1" style="color:rgb(232,144,52, .9);font-weight:500;font-size:22px; text-align:center" >Citizen Driven Digital Governance</p>
+
+                <term1 style="padding-top:10px;"><span >Single Unified Government APP Ecosystem</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    A centralized, all-in-one digital governance app allows citizens to report issues, track services, access benefits, and provide feedback in a single platform.
+                    It integrates various fragmented government services into one seamless interface, reducing confusion and improving public engagement.
+                    AI ensures complaints are directed to the right departments, and real-time tracking increases accountability.",
+
+                </p>
+
+                <term1 style="padding-top:10px;"><span >AI-Assisted Automated Complaint Resolution</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    AI automatically categorizes and prioritizes complaints, ensuring critical issues are
+                    resolved first. The system learns from past complaints to predict recurring failures
+                    and suggest systemic fixes rather than just short-term resolutions. This eliminates
+                    delays caused by bureaucratic inefficiencies and improves overall response times
+                    for governance issues.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>Community Feedback Loops & Ratings</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    A public rating and review system allows citizens to score government services, projects,
+                    and officials based on real-world performance. AI aggregates these reviews to identify persistent
+                    governance failures, ensuring that underperforming departments are flagged. This system
+                    self-corrects inefficiencies and rewards departments that consistently perform well.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>Crowdsourced Verification & Local Problem-Solving</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    People from the community verify infrastructure issues (e.g., potholes, garbage collection,
+                    power outages) using geotagged images and videos. This ensures government resources are
+                    deployed only where needed, preventing false complaints and resource wastage. A reward system
+                    incentivizes citizens to participate in local governance, making public services more responsive.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>National Digital Infrastructure Overhaul</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    A centralized effort to modernize and standardize all government digital systems,
+                    including websites, databases, uptime management, and user experience. Ensures that all
+                    government portals follow a seamless, user-friendly, and AI-integrated framework for efficient
+                    service delivery. A dedicated central department, with elite national and international
+                    collaboration, oversees the continual improvement and cybersecurity of digital governance.
+                    Public service portals, including taxation, legal documentation, education, and healthcare,
+                    are streamlined into an accessible, high-performance digital ecosystem.
+                </p>
+
+            </d-appendix>
+
+            <!------------------------------------------------------------->
+            <!-- [ Green1 ]  -->
+
+            <d-appendix style="border:0px;background-color:rgba(80,152,43,.04);font-size:12px; margin-top:0px; padding-top: 60px; padding-bottom:30px; padding-left:20px; padding-right:20px">
+
+                <p class="main_ministries_tribal_affairs" id= "BB2" style="color:rgb(80,152,43, .9);font-weight:500;font-size:22px; text-align:center" >Central Policy Design Authority</p>
+
+                <term2 style="padding-top:10px;"><span >AI-Powered Digital Twin for Policy Testing</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    A virtual AI-driven simulation of India where new policies are tested before real-world rollout.
+                    Predicts how policies will perform based on historical data, preventing bad governance decisions.
+                    Ensures only viable policies go for field implementation.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>Small-Scale Live Testing in Select Cities</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    Instead of nationwide rollout delays, policies first get tested in 3–5 diverse cities.
+                    This allows quick iteration and improvement based on real-world outcomes.
+                    Live feedback collection ensures policies are adjusted before full implementation.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>Automatic Policy Feedback Collection</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    AI processes real-time feedback from test locations to detect policy flaws early. Automated data
+                    collection removes bureaucratic delays in gathering performance insights. Allows faster policy
+                    adjustments without waiting for long-term studies.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>Centralized Written Protocols for All Policies</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    Every policy must have a structured execution protocol that defines clear responsibilities,
+                    measurement metrics, and corrective actions. Prevents misinterpretation and ensures
+                    accountability in execution. A central repository of governance protocols is maintained
+                    for standardization.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>Public Policy Feedback & Crowdsourced Reviews</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    A structured community feedback system where all draft policies must be shared publicly
+                    before approval. Citizens, industry leaders, and experts submit feedback digitally,
+                    ensuring policies are aligned with real-world needs. AI prioritizes valuable suggestions
+                    and mandatory government responses are required for major feedback points.
+                </p>
+            </d-appendix>
+
+            <!------------------------------------------------------------->
+            <!-- [ orange2 ]  -->
+            <d-appendix style="border:0px;background-color:rgba(248,241,234,.5);font-size:12px; margin-top:0px; padding-top: 60px; padding-bottom:30px; padding-left:20px; padding-right:20px">
+
+                <p class="main_ministries_tribal_affairs" id= "BB3" style="color:rgb(232,144,52, .9);font-weight:500;font-size:22px; text-align:center" >AI Data Driven Governance</p>
+
+                <term1 style="padding-top:10px;"><span>AI-Based Governance Audits</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    AI continuously scans public records, infrastructure data, and economic indicators
+                    to detect anomalies. This prevents financial mismanagement, identifies corruption,
+                    and flags departments where public funds are misused. Automated audits ensure government
+                    projects are executed as planned, without delays or resource siphoning.
+                </p>
+
+                <term1 style="padding-top:10px;"><span >Predictive Governance Models</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    AI analyzes historical data and current socio-economic indicators to predict where governance
+                    failures may occur. For example, AI can forecast water shortages, sanitation crises,
+                    or transport inefficiencies, allowing proactive interventions before problems escalate.
+                    This shifts governance from reactive to preventive decision-making.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>Automated Policy Compliance Checks</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    Policies are often implemented ineffectively due to lack of oversight. AI ensures laws,
+                    regulations, and service delivery benchmarks are met by tracking real-time compliance data.
+                    If violations occur, the system automatically generates alerts, penalties, or corrective measures,
+                    ensuring policy execution does not rely on human inefficiency.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>Centralized AI-Based Tendering & Fund Allocation</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    All government tenders are controlled by a centralized AI system to prevent corruption,
+                    favoritism, and overpricing. AI evaluates contractor bids based on cost-benefit analysis,
+                    historical performance, and market benchmarks. Blockchain records ensure tamper-proof,
+                    transparent, and publicly auditable tender processes.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>AI-Based Project Tracking & Fund Release</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    Funds for government projects are only released when AI confirms real work progress
+                    through automated monitoring systems. AI uses satellite imagery, IoT sensors,
+                    and third-party verification to track project completion. If delays or fraudulent
+                    activity are detected, payments are automatically frozen until corrections are made.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>Government Systems' Monitoring APP</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    A centralized digital platform that publicly displays structured information on how
+                    the government is operating. Uploads images, videos, and reports related to
+                    infrastructure projects, public service execution, and administrative actions. Minimizes
+                    the need for RTI (Right to Information) queries by ensuring proactive transparency and
+                    real-time updates on governance. AI-driven monitoring ensures compliance with project
+                    deadlines and corruption prevention by allowing citizens to track and rate government work.
+                </p>
+
+            </d-appendix>
+
+            <!------------------------------------------------------------->
+            <!-- [ Green2 ]  -->
+
+            <d-appendix style="border:0px;background-color:rgba(80,152,43,.04);font-size:12px; margin-top:0px; padding-top: 60px; padding-bottom:30px; padding-left:20px; padding-right:20px">
+
+                <p class="main_ministries_tribal_affairs" id= "BB4" style="color:rgb(80,152,43, .9);font-weight:500;font-size:22px; text-align:center" >Incentivization & Behavioral Nudging</p>
+
+                <term2 style="padding-top:10px;"><span >Tax Rebates for Compliance</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    Businesses and citizens receive tax benefits for following regulations—such as waste
+                    management compliance, pollution reduction, or timely tax filings. AI automatically
+                    monitors compliance and allocates tax reductions without requiring lengthy approval
+                    processes. Ensures positive behavior is rewarded, increasing participation in
+                    governance initiatives.
+                </p>
+
+                <term2 style="padding-top:10px;"><span >AI-Based Performance Pay for Bureaucrats</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    Bureaucratic performance is tracked in real-time through AI to ensure efficiency,
+                    transparency, and accountability. Promotions, salary increments, and incentives
+                    are adjusted based on predefined AI-scored performance indicators. Ensures that only
+                    high-performing officials are rewarded while non-performers face penalties.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>AI-Monitored Compliance & Fraud Prevention</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                     AI continuously tracks businesses' adherence to regulations, ensuring real compliance
+                    rather than temporary fixes. Multi-layered monitoring via IoT sensors, industrial cameras,
+                    and AI-based environmental tracking. Prevents regulatory loopholes and fraud in industrial
+                    operations.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>AI-Based Fraud Detection in Government Subsidies</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                     AI prevents fraudulent claims and subsidy misuse by verifying eligibility,
+                    tracking fund disbursement, and ensuring beneficiaries meet policy criteria.
+                    Cross-referencing financial records, land use data, and business operations
+                    history ensures only qualified entities receive benefits. Reduces financial
+                    wastage and ensures subsidies are directed to genuine recipients.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>AI-Driven Panchayat & Local Governance Oversight</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                     Panchayat-level governance is integrated into a centralized AI system to prevent
+                    corruption, nepotism, and mismanagement of local funds. Budget allocations, tendering,
+                    and fund usage are AI-tracked with public transparency dashboards. Ensures that all
+                    local governance decisions align with national policy priorities.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>Government Awareness APP</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                     A centralized digital platform that educates citizens on essential governance topics,
+                    social behavior, and policy compliance. Includes interactive modules on highway codes,
+                    responsible civic behavior, housing guidelines, and environmental sustainability. AI parses
+                    community feedback from the app and integrates insights into broader governance
+                    tracking under Citizen-Driven Digital Governance.
+                </p>
+
+            </d-appendix>
+
+            <!------------------------------------------------------------->
+            <!-- [ orange3 ]  -->
+            <d-appendix style="border:0px;background-color:rgba(248,241,234,.5);font-size:12px; margin-top:0px; padding-top: 60px; padding-bottom:30px; padding-left:20px; padding-right:20px">
+
+                <p class="main_ministries_tribal_affairs" id= "BB5" style="color:rgb(232,144,52, .9);font-weight:500;font-size:22px; text-align:center" >AI Driven Law Enforcement</p>
+
+                <term1 style="padding-top:10px;"><span >AI-Powered Crime Prevention & Response</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    AI analyzes real-time crime data, movement patterns, and historical incidents to predict
+                    and prevent criminal activity. Law enforcement is deployed preemptively to high-risk zones,
+                    ensuring crime prevention rather than just post-incident response.
+                </p>
+
+                <term1 style="padding-top:10px;"><span >Automated Fines & Digital Policing</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    Minor offenses such as traffic violations, illegal dumping, and noise pollution are
+                    detected and fined automatically using AI-driven surveillance. This reduces human
+                    intervention, prevents bribery, and ensures fair law enforcement. AI tracks repeated
+                    offenses and increases penalties accordingly.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>Surveillance-Integrated Law Enforcement</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    A network of AI-powered cameras monitors public areas, ensuring real-time tracking of
+                    criminal activities. Facial recognition and AI-assisted tracking help law enforcement
+                    respond to crimes efficiently while reducing police workload.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>Police Salary, Training & Logistics Overhaul</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    Enhancing police salaries, equipment, and training to ensure modern, efficient law enforcement.
+                    AI-driven evaluation metrics determine performance-based incentives and promotions. Increased
+                    investment in police infrastructure and logistics ensures better crime response times and
+                    national security.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>Police & Public Safety APP</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    An AI-integrated mobile application where citizens can report crimes, track law enforcement actions, and request emergency assistance.
+                    Live-tracking of law enforcement responses ensures transparency and accountability. Allows
+                    real-time crime reports with geotagging to improve efficiency of police deployment.
+                </p>
+            </d-appendix>
+
+            <!------------------------------------------------------------->
+            <!-- [ Green3 ]  -->
+            <d-appendix style="border:0px;background-color:rgba(80,152,43,.04);font-size:12px; margin-top:0px; padding-top: 60px; padding-bottom:30px; padding-left:20px; padding-right:20px">
+
+                <p class="main_ministries_tribal_affairs" id= "BB6" style="color:rgb(80,152,43, .9);font-weight:500;font-size:22px; text-align:center" >Future Ready Workforce Innovation</p>
+
+                <term2 style="padding-top:10px;"><span >AI-Powered Skill Development APP</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    A centralized digital platform providing structured learning paths in high-demand
+                    digital fields (AI, data science, cybersecurity, fintech, robotics, etc.). Content is
+                    interactive, adaptive, and personalized for different learning levels. Industry
+                    collaborations ensure certification is aligned with real-world job requirements.
+                </p>
+
+                <term2 style="padding-top:10px;"><span >Decentralized Hands-On Training Centers</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    ITI centers focus purely on practical learning while theoretical education shifts
+                    online via the AI-powered platform. Training centers integrate modern tools,
+                    AR/VR simulations, and real-world industry projects. Ensures a hybrid education model
+                    for high employability.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>Government-Certified Digital Credentials & AI-Driven Job Placement</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    AI-backed certification system linked to an automated job-matching platform. Employers get
+                    access to verified candidate credentials ensuring quality hires. Eliminates fraudulent
+                    certifications and improves hiring efficiency.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>National R&D & Innovation Fund</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                     Government-backed funding for deep-tech, biotech, AI, and sustainability startups. AI-assessed
+                    funding mechanisms ensure fair distribution and prevent bureaucratic corruption. Long-term
+                    research projects are financially sustained without excessive government interference.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>Public-Private Collaboration for AI-Based Research & Incubation</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                     Partnerships between the government, universities, and corporates to foster research in AI,
+                    space, biotech, and sustainable technologies. Incubation centers provide infrastructure,
+                    mentorship, and funding for early-stage R&D projects. Ensures India becomes a global leader
+                    in future technology.
+                </p>
+
+            </d-appendix>
+
+            <!------------------------------------------------------------->
+            <!-- [ orange4 ]  -->
+            <d-appendix style="border:0px;background-color:rgba(248,241,234,.5);font-size:12px; margin-top:0px; padding-top: 60px; padding-bottom:30px; padding-left:20px; padding-right:20px">
+
+                <p class="main_ministries_tribal_affairs" id= "BB7" style="color:rgb(232,144,52, .9);font-weight:500;font-size:22px; text-align:center" >Last Mile Service Delivery & Export</p>
+
+                <term1 style="padding-top:10px;"><span >AI-Based Localized Policy Execution</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    National policies are dynamically adjusted at the district level using AI to analyze
+                    real-time data on poverty, infrastructure gaps, and climate risks. This ensures that
+                    government schemes are optimized for local conditions rather than following a
+                    'one-size-fits-all' model. AI-driven policy refinement guarantees better targeting
+                    of resources where they are needed most.
+                </p>
+
+                <term1 style="padding-top:10px;"><span >Micro-Governance Hubs for Basic Services</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    Small-scale government service hubs are deployed in every block or village to ensure
+                    citizens do not need to travel to urban centers for basic necessities. These hubs provide
+                    access to food distribution, healthcare, financial assistance, and government documentation.
+                    Decentralized governance hubs improve last-mile service efficiency and reduce
+                    bureaucratic delays.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>Geo-Fencing for Service Access</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    Government benefits like food, healthcare, and cash transfers are geo-tagged to ensure that
+                    only eligible recipients within a designated zone can access them. AI-driven location
+                    verification prevents fraud and leakage of government aid programs. This system guarantees
+                    that resources are allocated efficiently to genuine beneficiaries.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>AI-Governed Export Sector Development</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    AI analyzes global market trends to identify high-demand export sectors, including food products,
+                    handicrafts, and digital services. The government facilitates vendor certification,
+                    ensures compliance with international trade laws, and provides logistical support
+                    to boost exports. Ensures small businesses and rural enterprises can access global markets,
+                    increasing economic opportunities.
+                </p>
+
+                <term1 style="padding-top:10px;"><span>Govt-Owned Revenue-Generating Service Models</span></term1>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    Essential services such as public transportation, water supply, and waste management
+                    follow AI-powered dynamic pricing models. Instead of relying on government subsidies,
+                    these services sustain themselves financially while remaining affordable to the public.
+                    Smart pricing prevents overuse, ensures fairness, and allows reinvestment into
+                    infrastructure improvements.
+                </p>
+
+            </d-appendix>
+
+            <!------------------------------------------------------------->
+            <!-- [ Green4 ]  -->
+
+            <d-appendix style="border:0px;background-color:rgba(80,152,43,.04);font-size:12px; margin-top:0px; padding-top: 60px; padding-bottom:30px; padding-left:20px; padding-right:20px">
+                <p class="main_ministries_tribal_affairs" id= "BB8" style="color:rgb(80,152,43, .9);font-weight:500;font-size:22px; text-align:center" >Public Sector Led Infrastructure & Employment</p>
+
+                <term2 style="padding-top:10px;"><span >Government-Owned Infrastructure Expansion</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                    The government directly funds and operates national infrastructure projects such as
+                    smart cities, rural electrification, and large-scale public works. AI-driven project management
+                    ensures efficiency while job creation is focused on public sector employment in construction,
+                    maintenance, and administration. State-led infrastructure ensures long-term economic growth
+                    and reduced dependency on private corporations.
+                </p>
+
+                <term2 style="padding-top:10px;"><span >State-Backed Public Transport & Logistics Employment</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px;border-bottom:0px;text-align:center">
+                   Expansion of state-run bus services, metro networks, high-speed rail, and sustainable
+                    mobility initiatives creates thousands of public sector jobs. AI-driven fleet management
+                    optimizes transportation networks, ensuring high operational efficiency and reduced congestion.
+                    Government investments ensure affordable and accessible transport services while
+                    creating long-term employment opportunities.
+                </p>
+
+
+                <term2 style="padding-top:10px;"><span>Universal Public Healthcare Expansion</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    Government builds and operates AI-assisted hospitals, health clinics, and emergency care
+                    facilities, reducing reliance on private healthcare. Direct hiring of medical professionals,
+                    nurses, and healthcare workers strengthens public health infrastructure and job creation.
+                    AI-driven patient management and automated diagnostics improve efficiency while
+                    maintaining affordability.
+                </p>
+
+                <term2 style="padding-top:10px;"><span>Government-Led Industrial & Defense Manufacturing</span></term2>
+                <p  class="main_ministries_problems" style="border-top:0px ;border-bottom:0px;text-align:center">
+                    AI-driven public sector factories focus on defense, electronics, and heavy industry
+                    manufacturing, ensuring self-sufficiency and national security. New government-operated
+                    R&D hubs promote industrial research, innovation, and direct employment creation in
+                    high-tech sectors. State-led job creation ensures stability and long-term investment
+                    in industrial capacity.
+                </p>
+
+            </d-appendix>
+
+        <script type="text/javascript" src="index.bundle.js"></script>
+
+        <!------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------->
+        <!--<d-byline>
+            <div class="byline grid">
+                <div class="authors-affiliations grid">
+                    <h3>Authors</h3>
+                    <h3>RESEARCHERS</h3>
+
+                    <p class="author">
+                        <a class="name">Sukrit Shankar</a>
+                    </p>
+                    <p class="affiliation">
+                        <a class="affiliation">AI, Math, Policy</a>
+                    </p>
+                    <p class="author">
+                        <a class="name">Yalda Shankar</a>
+                    </p>
+                    <p class="affiliation">
+                        <a class="affiliation">AI, Design </a>
+                    </p>
+                </div>
+                <div>
+                    <h3>Date</h3>
+                    <p>Feb 19, 2025</p>
+                </div>
+                <div>
+                    <h3>@GMAIL.com</h3>
+                    <p><a>sukritshankar</a></p>
+                    <p><a>yaldashankar</a></p>
+                </div>
+            </div>
+        </d-byline> -->
+
+        <!------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------->
+        <d-byline style="background-color:rgb(255,255,255); border:0px">
+            <div class="byline" style="grid-template-columns: 1fr; text-align:center">
+                <div>
+                    <h3 style="color:rgb(130,130,130)">
+                        <span style="color:rgb(130,130,130)"> &nbsp </span>
+                        A &nbsp
+                        <a style="color:rgb(190,190,190)" href="https://github.com/distillpub" target="_blank">Distill
+                        </a>
+                        &nbsp ADAPTATION
+                    </h3>
+                </div>
+            </div>
+        </d-byline>
+        <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+              ga('create', 'UA-83741880-1', 'auto');
+              ga('send', 'pageview');
+        </script>
+    </body>
+</html>
