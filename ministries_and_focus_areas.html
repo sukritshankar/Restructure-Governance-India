@@ -29,6 +29,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <script>
             window.addEventListener('WebComponentsReady', function() {
               console.warn('WebComponentsReady');
@@ -49,7 +50,6 @@
               -ms-text-size-adjust: 100%;
               -webkit-text-size-adjust: 100%;
             }
-
 
             @media(min-width: 768px) {
               html {
@@ -116,6 +116,26 @@
               font-size: 15px;
               font-weight: 600;
               color: rgba(0, 0, 0, 0.5);
+            }
+
+            #myBtn {
+              display: none;
+              position: fixed;
+              bottom: 20px;
+              right: 20px;
+              z-index: 99;
+              font-size: 12px;
+              border: none;
+              outline: none;
+              background-color: rgb(36,35,92);
+              color: white;
+              cursor: pointer;
+              padding: 5px;
+              border-radius: 4px;
+            }
+
+            #myBtn:hover {
+              background-color: rgb(36,35,92);
             }
 
 
@@ -233,11 +253,11 @@
               d-citation-list,
               distill-footer {
                 grid-template-columns: [screen-start] 1fr [page-start kicker-start middle-start text-start] 200px 45px 45px 45px 45px 45px 45px 45px [ kicker-end text-end gutter-start] 45px [middle-end] 45px [page-end gutter-end] 1fr [screen-end];
-                grid-column-gap: 16px;
+                grid-column-gap: 32px;
               }
 
               .grid {
-                grid-column-gap: 16px;
+                grid-column-gap: 32px;
               }
             }
 
@@ -274,12 +294,12 @@
               d-footnote-list,
               d-citation-list,
               distill-footer {
-                grid-template-columns: [screen-start] 1fr [page-start kicker-start]  60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 140px 140px 140px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
-                grid-column-gap: 32px;
+                grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 140px 140px 140px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+                grid-column-gap: 16px;
               }
 
               .grid {
-                grid-column-gap: 32px;
+                grid-column-gap: 16px;
               }
             }
 
@@ -808,28 +828,6 @@ term span {
             #compare_play_button[disabled] {
                 opacity: 0.5;
             }
-
-            #myBtn {
-              display: none;
-              position: fixed;
-              bottom: 20px;
-              right: 20px;
-              z-index: 99;
-              font-size: 12px;
-              border: none;
-              outline: none;
-              background-color: rgb(36,35,92);
-              color: white;
-              cursor: pointer;
-              padding: 5px;
-              border-radius: 4px;
-            }
-
-            #myBtn:hover {
-              background-color: rgb(36,35,92);
-            }
-
-
 
             d-title {
                 padding-bottom: 0;
@@ -1833,7 +1831,7 @@ term span {
         </style>
 
         <d-title style="background-image: linear-gradient(rgba(36,35,96,.05) , white,white ,rgba(36,35,96,.05));
-        color:rgb(36,35,96);padding-top: 60px; padding-bottom:30px;">
+        color:rgb(36,35,96);padding-top: 70px; padding-bottom:35px;">
             <!-- Name -->
             <h1>Ministries <span class="lighter">&</span> Focus Areas</h1>
 
