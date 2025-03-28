@@ -1934,7 +1934,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-agriculture:hover {
                 background-color: rgba(47,132,69, 0.1);
@@ -1953,7 +1958,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-ayush:hover {
                 background-color: rgba(186,147,28, 0.1);
@@ -1972,7 +1982,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-chemicals:hover {
                 background-color: rgba(208,55,31, 0.1);
@@ -1991,7 +2006,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-civil_aviation:hover {
                 background-color: rgba(0, 82, 165, 0.1);
@@ -2010,7 +2030,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-coal:hover {
                 background-color: rgba(33, 41, 48, 0.1);
@@ -2029,7 +2054,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-commerce:hover {
                 background-color: rgba(153,0,76, 0.1);
@@ -2048,7 +2078,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-communications:hover {
                 background-color: rgba(61,136,137, 0.1);
@@ -2067,7 +2102,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-consumer_affairs:hover {
                 background-color: rgba(210, 105, 30, 0.1);
@@ -2086,7 +2126,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-corporate_affairs:hover {
                 background-color: rgba(0, 0, 100, 0.1);
@@ -2105,7 +2150,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-culture:hover {
                 background-color: rgba(146,5,146, 0.1);
@@ -2113,19 +2163,23 @@ term span {
             }
 
             .rounded-box-defence {
-                display: inline-block; /* Allows spans to wrap */
-                background-color: rgba(246,246,246,0.5); /* Main Background */
-                color: rgba(92,92,4, 1); /* White text */
-                font-weight: 300; /* Adjustable */
-                font-size: 14px; /* Adjustable */
-                padding: 4px 12px; /* Padding for spacing */
-                border:solid 0.5px;  /* Put Border */
-                border-color: rgba(92,92,4, 0.2);
+                display: inline-block;
+                background-color: rgba(246,246,246,0.5);
+                color: rgba(92,92,4, 1);
+                font-weight: 300;
+                font-size: 14px;
+                padding: 4px 12px;
+                border: solid 0.5px rgba(92,92,4, 0.2);
+                border-radius: 5px;
+                margin: 3px;
 
-                border-radius: 5px; /* Rounded edges */
-                margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
+
             .rounded-box-defence:hover {
                 background-color: rgba(92,92,4, 0.1);
                 border:solid 1px;
@@ -2143,7 +2197,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-develop_northeast:hover {
                 background-color: rgba(150,0,0, 0.1);
@@ -2162,7 +2221,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-earth_sciences:hover {
                 background-color: rgba(86,86,142, 0.1);
@@ -2181,7 +2245,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-education:hover {
                 background-color: rgba(226,128,163, 0.1);
@@ -2200,7 +2269,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-electronics_it:hover {
                 background-color: rgba(41,128,185, 0.1);
@@ -2219,7 +2293,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-environment:hover {
                 background-color: rgba(0,153,153, 0.1);
@@ -2238,7 +2317,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-external_affairs:hover {
                 background-color: rgba(215,86,86, 0.1);
@@ -2257,7 +2341,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-finance:hover {
                 background-color: rgba(199,159,0, 0.1);
@@ -2276,7 +2365,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-livestock:hover {
                 background-color: rgba(206,135,135, 0.1);
@@ -2295,7 +2389,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-food_processing:hover {
                 background-color: rgba(107,144,43, 0.1);
@@ -2314,7 +2413,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-health:hover {
                 background-color: rgba(18,116,202, 0.1);
@@ -2333,7 +2437,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-heavy_industries:hover {
                 background-color: rgba(127,140,141, 0.1);
@@ -2352,7 +2461,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-home_affairs:hover {
                 background-color: rgba(188,82,68, 0.1);
@@ -2371,7 +2485,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-housing_habitat:hover {
                 background-color: rgba(137,71,5, 0.1);
@@ -2390,7 +2509,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-information_media:hover {
                 background-color: rgba(112,0,132, 0.1);
@@ -2409,7 +2533,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-jal:hover {
                 background-color: rgba(52,152,219, 0.1);
@@ -2428,7 +2557,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-labour:hover {
                 background-color: rgba(202,44,63, 0.1);
@@ -2447,7 +2581,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-law:hover {
                 background-color: rgba(149,102,66, 0.1);
@@ -2466,7 +2605,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-MSMEs:hover {
                 background-color: rgba(45,110,80, 0.1);
@@ -2485,7 +2629,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-mines:hover {
                 background-color: rgba(66,52,41, 0.1);
@@ -2504,7 +2653,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-minority_affairs:hover {
                 background-color: rgba(139,83,190, 0.1);
@@ -2523,7 +2677,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-new_renewables:hover {
                 background-color: rgba(55,155,75, 0.1);
@@ -2542,7 +2701,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-panchayati_raj:hover {
                 background-color: rgba(221,45,74, 0.1);
@@ -2561,7 +2725,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-parliamentary_affairs:hover {
                 background-color: rgba(195,147,33, 0.1);
@@ -2580,7 +2749,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-people_affairs:hover {
                 background-color: rgba(199,127,115, 0.1);
@@ -2599,7 +2773,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-petroleum_gas:hover {
                 background-color: rgba(22,160,133, 0.1);
@@ -2618,7 +2797,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-power:hover {
                 background-color: rgba(78,108,160, 0.1);
@@ -2637,7 +2821,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-railways:hover {
                 background-color: rgba(150,46,48, 0.1);
@@ -2656,7 +2845,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-road_highways:hover {
                 background-color: rgba(99,99,99, 0.1);
@@ -2675,7 +2869,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-rural_development:hover {
                 background-color: rgba(136,149,49, 0.1);
@@ -2694,7 +2893,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-science_tech:hover {
                 background-color: rgba(55,80,134, 0.1);
@@ -2713,7 +2917,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-shipping:hover {
                 background-color: rgba(82,146,169, 0.1);
@@ -2732,7 +2941,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-skill_startups:hover {
                 background-color: rgba(192,40,98, 0.1);
@@ -2751,7 +2965,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-social_justice:hover {
                 background-color: rgba(148,120,27, 0.1);
@@ -2770,7 +2989,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-space:hover {
                 background-color: rgba(61,19,94, 0.1);
@@ -2789,7 +3013,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-statistics_analysis:hover {
                 background-color: rgba(45,101,104, 0.1);
@@ -2808,7 +3037,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-steel:hover {
                 background-color: rgba(114,133,150, 0.1);
@@ -2827,7 +3061,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-textiles:hover {
                 background-color: rgba(179,115,134, 0.1);
@@ -2846,7 +3085,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-tourism:hover {
                 background-color: rgba(243,156,18, 0.1);
@@ -2865,7 +3109,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-tribal_affairs:hover {
                 background-color: rgba(200,29,26, 0.1);
@@ -2884,7 +3133,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-women_child:hover {
                 background-color: rgba(216,97,146, 0.1);
@@ -2903,7 +3157,12 @@ term span {
 
                 border-radius: 5px; /* Rounded edges */
                 margin: 3px; /* Spacing between spans */
-                white-space: nowrap; /* Ensures content doesn't break inside */
+
+                /* Allow wrapping inside the span */
+                white-space: normal;
+                word-wrap: break-word; /* Older syntax */
+                overflow-wrap: break-word; /* Preferred syntax */
+                max-width: 100%; /* Optional: Restrict width to container */
             }
             .rounded-box-youth_sports:hover {
                 background-color: rgba(33,144,33, 0.1);
