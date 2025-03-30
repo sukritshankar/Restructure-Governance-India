@@ -1698,40 +1698,52 @@
             }
         </style>
 
+        <style>
+            .small-title {
+                font-size: 12px;
+                font-weight: 500;
+                margin: 0;
+            }
+        </style>
+
         <!-- SHANKAR (Add) -->
-        <d-appendix style="border:0px;color:rgba(36,35,96,1);font-size:12px; margin-top:10px;
+        <d-title style="border:0px;color:rgba(36,35,96,1); margin-top:10px;
         padding-top: 30px; padding-bottom:30px; padding-left:20px; padding-right:20px">
             <!------------------------------------------------------------->
             <!-- Causal Factors Paragraph Description -->
+            <p style="font-size:14px;">
                 <term><span style="background:white;color:rgba(0, 0, 0,.9);">Causal Factors</span></term>
-            <p class="causal-factors">
-                The AYUSH Scientific Validation Gap primarily stems from <b>limited large-scale clinical trials</b>,
-                <b>inadequate research funding</b>, and <b>a lack of standardized methodologies for evaluating
-                traditional treatments</b>. Additionally, regulatory challenges, insufficient collaboration
-                between modern and traditional medicine, and a shortage of peer-reviewed studies hinder
-                scientific validation. The reliance on historical and anecdotal evidence rather than
-                rigorous empirical data further contributes to skepticism about AYUSH therapies in
-                mainstream healthcare.
+                <p class="causal-factors">
+                    The AYUSH Scientific Validation Gap primarily stems from <b>limited large-scale clinical trials</b>,
+                    <b>inadequate research funding</b>, and <b>a lack of standardized methodologies for evaluating
+                    traditional treatments</b>. Additionally, regulatory challenges, insufficient collaboration
+                    between modern and traditional medicine, and a shortage of peer-reviewed studies hinder
+                    scientific validation. The reliance on historical and anecdotal evidence rather than
+                    rigorous empirical data further contributes to skepticism about AYUSH therapies in
+                    mainstream healthcare.
+                </p>
             </p>
 
             <!------------------------------------------------------------->
             <!-- Existing Schemes Description -->
-                <term style="margin-top:40px;">
-                    <span style="background:white;color:rgba(0, 0, 0,.5);">Current Schemes / Missions</span>
+            <p style="font-size:14px;">
+                <term style="margin-top:0px;">
+                        <span style="background:white;color:rgba(0, 0, 0,.5);">Current Schemes / Missions</span>
                 </term>
 
-            <p class="existing-schemes">
-                The Indian government has launched initiatives like the <b> Central Sector Scheme for
-                Pharmacovigilance of AYUSH Drugs </b>, the <b>AYUSH Research Portal</b>,
-                and collaborations under the <b>National AYUSH Mission (NAM) </b> to promote
-                scientific validation of traditional medicine. However, these efforts often
-                <b>lack adequate funding</b>, <b>face bureaucratic delays</b>, and struggle with <b>poor integration
-                between AYUSH and modern medical research institutions</b>. Additionally,
-                limited public awareness, weak regulatory enforcement, and the absence of
-                standardized clinical trial frameworks hinder their effectiveness in
-                achieving large-scale scientific validation.
+                <p class="existing-schemes">
+                    The Indian government has launched initiatives like the <b> Central Sector Scheme for
+                    Pharmacovigilance of AYUSH Drugs </b>, the <b>AYUSH Research Portal</b>,
+                    and collaborations under the <b>National AYUSH Mission (NAM) </b> to promote
+                    scientific validation of traditional medicine. However, these efforts often
+                    <b>lack adequate funding</b>, <b>face bureaucratic delays</b>, and struggle with <b>poor integration
+                    between AYUSH and modern medical research institutions</b>. Additionally,
+                    limited public awareness, weak regulatory enforcement, and the absence of
+                    standardized clinical trial frameworks hinder their effectiveness in
+                    achieving large-scale scientific validation.
+                </p>
             </p>
-        </d-appendix>
+        </d-title>
         <script type="text/javascript" src="index.bundle.js"></script>
 
         <style>
@@ -1768,20 +1780,35 @@
             }
 
             term {
-               width: 100%;
-               text-align: center;
-               border-bottom: 1px solid rgb(235,235,235);
-               line-height: 0.1em;
-               margin: 10px 0 20px;
-               font-size: 15px;
-               font-weight:200;
-               color: rgb(162,162,162);
+                display: flex;
+                align-items: center;
+                text-align: center;
+                width: 100%;
+                color: rgb(162,162,162);
+                font-size: 14px;
+                font-weight: 200;
+                margin: 0px 0 0px;
+            }
+
+            term::before,
+            term::after {
+                content: "";
+                flex: 1;
+                border-bottom: 1px solid rgb(235,235,235);
+            }
+
+            term:not(:empty)::before {
+                margin-right: 10px;
+            }
+
+            term:not(:empty)::after {
+                margin-left: 10px;
             }
 
             term span {
-                background:rgb(252,252,253);
-                padding:0 10px;
-                border-radius: 490em /15em ;
+                background: rgb(252,252,253);
+                padding: 0 10px;
+                border-radius: 490em / 15em;
             }
 
             title-box  {
