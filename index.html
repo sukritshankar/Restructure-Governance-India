@@ -1184,8 +1184,22 @@
                     the goal is to establish a <span class="bold-custom">self-correcting, globally competitive governance system</span>
                     that facilitates transparency, accountability and engagement at all levels.
                     This framework acts as a <span class="bold-custom">foundational skeleton</span>, upon which
-                    <!--<span class="bold-custom">sector-specific policies</span> and -->
                     <span class="bold-custom">focus areas under ministries</span> are further developed.
+
+                    A foundational governance restructuring framework is proposed — one that
+                    defines how to govern rather than what to do. This model introduces a
+                    set of Intervention Class Groups designed to make governance more efficient,
+                    adaptive, transparent, participatory, and self-correcting.
+                    The framework accounts for long-propagating challenges, resource constraints,
+                    and institutional bottlenecks by embedding feedback loops, AI-assisted decision-making,
+                    and systemic resilience into the core structure.
+
+                    Through this lens, critical national challenges across Basic Necessities,
+                    Policy Design & Execution, Public Sector Efficiency, and Research & Innovation
+                    Ecosystems can be structurally addressed.
+
+                    This framework serves as the governance skeleton, upon which ministry-level focus
+                    areas can be built, aligned, and refined.
                 </span>
 
                 <a href="ministries_and_focus_areas.html" target="_blank">
@@ -1269,116 +1283,14 @@
                 max-width: 600px; /* Ensures it doesn't become too large */
             }
         </style>
-        <d-appendix style="border:0px;background-color:rgba(36,35,96,.01);color:rgb(61,136,137);font-size:12px; margin-top:10px; padding-top: 30px; padding-bottom:30px; padding-left:20px; padding-right:20px">
+        <d-appendix style="border:0px;background-color:rgba(36,35,96,.01);color:rgb(61,136,137);
+        font-size:12px; margin-top:10px; padding-top: 0px; padding-bottom:0px;
+        padding-left:20px; padding-right:20px">
             <!------------------------------------------------------------->
             <!------------------------------------------------------------->
+            <!----------- This will contain the Canvas Mapping ------------>
             <!------------------------------------------------------------->
             <!------------------------------------------------------------->
-            <div class="center-container">
-                <object id="india-map" type="image/svg+xml" data="INDIA__SKELETON.svg"></object>
-            </div>
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    let svgObject = document.getElementById("india-map");
-
-                    svgObject.addEventListener("load", function () {
-                        let svgDoc = svgObject.contentDocument; // Access the embedded SVG document
-                        let svgRoot = svgDoc.querySelector("svg"); // Get the SVG element
-                        let paths = svgDoc.querySelectorAll("path"); // Get all path elements
-
-                        // Use a Set to track unique paths by 'd' attribute (to avoid duplicates)
-                        let uniquePaths = [];
-                        let seenPaths = new Set();
-
-                        paths.forEach(path => {
-                            let d = path.getAttribute("d"); // Get path data
-                            if (d && !seenPaths.has(d)) { // Check if we've already seen this path
-                                seenPaths.add(d);
-                                uniquePaths.push(path);
-                            }
-                        });
-
-                        // Now numbering will be correct
-                        uniquePaths.forEach((path, index) => {
-                            let bbox = path.getBBox(); // Get bounding box of the path
-                            let centerX = bbox.x + bbox.width / 2; // X position of the text circle
-                            let centerY = bbox.y - 20; // Y position slightly above the path
-
-                            // Get stroke color (default to black if not set)
-                            let pathStrokeColor = path.getAttribute("stroke") || "black";
-
-                            // Create a circle element
-                            let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-                            circle.setAttribute("cx", centerX);
-                            circle.setAttribute("cy", centerY);
-                            circle.setAttribute("r", "0"); // Circle radius
-                            circle.setAttribute("fill", "rgba(253,252,253)"); // Background color
-                            circle.setAttribute("stroke", "rgba(253,252,253)"); // Border color
-                            circle.setAttribute("stroke-width", "0");
-
-                            // Create a text element inside the circle
-                            let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                            text.setAttribute("x", centerX);
-                            text.setAttribute("y", centerY + 2); // Adjust for centering text
-                            text.setAttribute("text-anchor", "middle"); // Center text horizontally
-                            text.setAttribute("dominant-baseline", "middle"); // Center text vertically
-                            text.setAttribute("fill", pathStrokeColor); // Apply path's stroke color to text
-                            text.setAttribute("font-size", "16px");
-                            text.textContent = `${index + 1}`; // Correct numbering
-
-                            // Append the circle and text to the SVG
-                            svgRoot.appendChild(circle);
-                            svgRoot.appendChild(text);
-                        });
-                    });
-                });
-            </script>
-            <script>
-                document.addEventListener("DOMContentLoaded", function () {
-                    let svgObject = document.getElementById("india-map");
-
-                    svgObject.addEventListener("load", function () {
-                        let svgDoc = svgObject.contentDocument; // Access embedded SVG document
-                        let paths = svgDoc.querySelectorAll("path"); // Get all path elements
-
-                        paths.forEach(function (path, index) {
-                            path.style.cursor = "pointer"; // Make it clickable
-                            let originalStrokeWidth = path.style.strokeWidth || "2px"; // Default stroke
-                            let ghostPath = path.cloneNode(true); // Create a ghost path for hover detection
-
-                            // Style the ghost path (Invisible, Large Stroke)
-                            ghostPath.style.strokeWidth = "20px"; // Large stroke for hover detection
-                            ghostPath.style.stroke = "transparent"; // Fully transparent
-                            ghostPath.style.fill = "none"; // No fill
-                            ghostPath.style.pointerEvents = "all"; // Ensure it detects hover
-
-                            // Insert the ghost path behind the real path
-                            path.parentNode.insertBefore(ghostPath, path);
-
-                            // Hover effect (ONLY ON GHOST PATH)
-                            ghostPath.addEventListener("mouseover", function () {
-                                path.style.strokeWidth = "8px"; // Visible stroke increases on hover
-                            });
-
-                            ghostPath.addEventListener("mouseout", function () {
-                                path.style.strokeWidth = originalStrokeWidth; // Restore original stroke
-                            });
-
-                            // 🔥 Click Event: Scroll to SK-<index+1> 🔥
-                            path.addEventListener("click", function () {
-                                let targetId = `BB${index + 1}`; // Construct target ID
-                                let targetElement = document.getElementById(targetId);
-
-                                if (targetElement) {
-                                    targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
-                                } else {
-                                    console.warn(`Element with ID ${targetId} not found.`);
-                                }
-                            });
-                        });
-                    });
-                });
-            </script>
         </d-appendix>
 
             <!------------------------------------------------------------->
