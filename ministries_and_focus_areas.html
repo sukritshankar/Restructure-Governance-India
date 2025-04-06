@@ -5146,7 +5146,7 @@ term span {
                 <script>
                     function includeHTML() {
                         fetch("main_ministries/space-C.html")  // Load the external file
-                            .then(response => response-C.text())  // Convert it to text
+                            .then(response => response.text())  // Convert it to text
                             .then(data => {
                                 document.getElementById("include-focus-areas-space-C").innerHTML = data;  // Insert into the page
                             })
@@ -5161,7 +5161,7 @@ term span {
                 <script>
                     function includeHTML() {
                         fetch("main_ministries/space-S.html")  // Load the external file
-                            .then(response => response-S.text())  // Convert it to text
+                            .then(response => response.text())  // Convert it to text
                             .then(data => {
                                 document.getElementById("include-focus-areas-space-S").innerHTML = data;  // Insert into the page
                             })
