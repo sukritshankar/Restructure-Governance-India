@@ -1,0 +1,1855 @@
+<!--------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------->
+<!-- The HTML Code and CSS are an adaptation of the Distill Sources -->
+<!-- The JS Files are used as such from the Distill Templates -->
+<!-- This is permissible according to the Official Apache 2.0 License of Distill Pub -->
+<!--
+     * Copyright 2018 The Distill Template Authors
+     *
+     * Licensed under the Apache License, Version 2.0 (the "License");
+     * you may not use this file except in compliance with the License.
+     * You may obtain a copy of the License at
+     *
+     *      http://www.apache.org/licenses/LICENSE-2.0
+     *
+     * Unless required by applicable law or agreed to in writing, software
+     * distributed under the License is distributed on an "AS IS" BASIS,
+     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     * See the License for the specific language governing permissions and
+     * limitations under the License.
+     */
+-->
+<!-- Proper attributions are at the bottom of the (rendered) page and NO CLAIM of a Custom Template is anywhere made -->
+<!--------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="IE=Edge,chrome=1" http-equiv="X-UA-Compatible"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+<script>
+            window.addEventListener('WebComponentsReady', function() {
+              console.warn('WebComponentsReady');
+              const loaderTag = document.createElement('script');
+              loaderTag.src = 'https://distill.pub/template.v2.js';
+              document.head.insertBefore(loaderTag, document.head.firstChild);
+            });
+        </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.17/webcomponents-loader.js"></script>
+<style id="distill-prerendered-styles" type="text/css">
+            html {
+              font-size: 14px;
+              line-height: 1.6em;
+              /* font-family: "Libre Franklin", "Helvetica Neue", sans-serif; */
+              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+              /*, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
+              text-size-adjust: 100%;
+              -ms-text-size-adjust: 100%;
+              -webkit-text-size-adjust: 100%;
+            }
+
+            @media(min-width: 768px) {
+              html {
+                font-size: 16px;
+              }
+            }
+
+            body {
+              margin: 0;
+            }
+
+            a {
+              color: #004276;
+            }
+
+            figure {
+              margin: 0;
+            }
+
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+
+            table th {
+                text-align: left;
+            }
+
+            table thead {
+              border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            table thead th {
+              padding-bottom: 0.5em;
+            }
+
+            table tbody :first-child td {
+              padding-top: 0.5em;
+            }
+
+            pre {
+              overflow: auto;
+              max-width: 100%;
+            }
+
+            p {
+              margin-top: 0;
+              margin-bottom: 1em;
+            }
+
+            sup, sub {
+              vertical-align: baseline;
+              position: relative;
+              top: -0.4em;
+              line-height: 1em;
+            }
+
+            sub {
+              top: 0.4em;
+            }
+
+            .kicker,
+            .marker {
+              font-size: 15px;
+              font-weight: 600;
+              color: rgba(0, 0, 0, 0.5);
+            }
+
+            #myBtn {
+              display: none;
+              position: fixed;
+              bottom: 20px;
+              right: 20px;
+              z-index: 99;
+              font-size: 12px;
+              border: none;
+              outline: none;
+              background-color: rgb(36,35,92);
+              color: white;
+              cursor: pointer;
+              padding: 10px;
+              border-radius: 4px;
+            }
+
+            #myBtn:hover {
+              background-color: rgb(36,35,92);
+            }
+
+
+            /* ------------------------------- */
+            /* ------------ Headline ----------*/
+            @media(min-width: 1024px) {
+              d-title h1 span {
+                display: block;
+              }
+            }
+
+            /* ------------------------------- */
+            /* ------------- Figure -----------*/
+            figure {
+              position: relative;
+              margin-bottom: 2.5em;
+              margin-top: 1.5em;
+            }
+
+            figcaption+figure {
+
+            }
+
+            figure img {
+              width: 100%;
+            }
+
+            figure svg text,
+            figure svg tspan {
+            }
+
+            figcaption,
+            .figcaption {
+              color: rgba(0, 0, 0, 0.6);
+              font-size: 12px;
+              line-height: 1.5em;
+            }
+
+            @media(min-width: 1024px) {
+            figcaption,
+            .figcaption {
+                font-size: 13px;
+              }
+            }
+
+            figure.external img {
+              background: white;
+              border: 1px solid rgba(0, 0, 0, 0.1);
+              box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+              padding: 18px;
+              box-sizing: border-box;
+            }
+
+            figcaption a {
+              color: rgba(0, 0, 0, 0.6);
+            }
+
+            figcaption b,
+            figcaption strong, {
+              font-weight: 600;
+              color: rgba(0, 0, 0, 1.0);
+            }
+
+            /* ------------------------------- */
+            /* ------------- Grids ------------*/
+            @supports not (display: grid) {
+              .base-grid,
+              distill-header,
+              d-title,
+              d-abstract,
+              d-article,
+              d-appendix,
+              distill-appendix,
+              d-byline,
+              d-footnote-list,
+              d-citation-list,
+              distill-footer {
+                display: block;
+                padding: 8px;
+              }
+            }
+
+            .base-grid,
+            distill-header,
+            d-title,
+            d-abstract,
+            d-article,
+            d-appendix,
+            distill-appendix,
+            d-byline,
+            d-footnote-list,
+            d-citation-list,
+            distill-footer {
+              display: grid;
+              justify-items: stretch;
+              grid-template-columns: [screen-start] 10px [page-start kicker-start text-start gutter-start middle-start] 200px 1fr 1fr 1fr 1fr 1fr 1fr 1fr [text-end page-end gutter-end kicker-end middle-end] 10px [screen-end];
+              grid-column-gap: 8px;
+            }
+
+            .grid {
+              display: grid;
+              grid-column-gap: 8px;
+            }
+
+            @media(min-width: 768px) {
+              .base-grid,
+              distill-header,
+              d-title,
+              d-abstract,
+              d-article,
+              d-appendix,
+              distill-appendix,
+              d-byline,
+              d-footnote-list,
+              d-citation-list,
+              distill-footer {
+                grid-template-columns: [screen-start] 1fr [page-start kicker-start middle-start text-start] 200px 45px 45px 45px 45px 45px 45px 45px [ kicker-end text-end gutter-start] 45px [middle-end] 45px [page-end gutter-end] 1fr [screen-end];
+                grid-column-gap: 32px;
+              }
+
+              .grid {
+                grid-column-gap: 32px;
+              }
+            }
+
+            @media(min-width: 1000px) {
+              .base-grid,
+              distill-header,
+              d-title,
+              d-abstract,
+              d-article,
+              d-appendix,
+              distill-appendix,
+              d-byline,
+              d-footnote-list,
+              d-citation-list,
+              distill-footer {
+                grid-template-columns: [screen-start] 1fr [page-start kicker-start] 50px [middle-start] 50px [text-start kicker-end] 50px 50px 50px 50px 50px 120px 120px 120px [text-end gutter-start] 50px [middle-end] 50px [page-end gutter-end] 1fr [screen-end];
+                grid-column-gap: 16px;
+              }
+
+              .grid {
+                grid-column-gap: 16px;
+              }
+            }
+
+            @media(min-width: 1180px) {
+              .base-grid,
+              distill-header,
+              d-title,
+              d-abstract,
+              d-article,
+              d-appendix,
+              distill-appendix,
+              d-byline,
+              d-footnote-list,
+              d-citation-list,
+              distill-footer {
+                grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 140px 140px 140px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+                grid-column-gap: 16px;
+              }
+
+              .grid {
+                grid-column-gap: 16px;
+              }
+            }
+
+            .base-grid {
+              grid-column: screen;
+            }
+
+            /* ------------------------------- */
+            /* ------------- Body -------------*/
+            /* .l-body,
+            d-article > *  {
+              grid-column: text;
+            }
+
+            .l-page,
+            d-title > *,
+            d-figure {
+              grid-column: page;
+            } */
+
+            .l-gutter {
+              grid-column: gutter;
+            }
+
+            .l-text,
+            .l-body {
+              grid-column: text;
+            }
+
+            .l-page {
+              grid-column: page;
+            }
+
+            .l-body-outset {
+              grid-column: middle;
+            }
+
+            .l-page-outset {
+              grid-column: page;
+            }
+
+            .l-screen {
+              grid-column: screen;
+            }
+
+            .l-screen-inset {
+              grid-column: screen;
+              padding-left: 16px;
+              padding-left: 16px;
+            }
+
+            /* ------------------------------- */
+            /* ------------- Aside ------------*/
+
+            d-article aside {
+              grid-column: gutter;
+              font-size: 12px;
+              line-height: 1.6em;
+              color: rgba(0, 0, 0, 0.6)
+            }
+
+            @media(min-width: 768px) {
+              aside {
+                grid-column: gutter;
+              }
+
+              .side {
+                grid-column: gutter;
+              }
+            }
+
+            d-title {
+              padding: 2rem 0 1.5rem;
+              contain: layout style;
+              overflow-x: hidden;
+              text-align: center; /* Add this line to center-align the text */
+            }
+
+            @media(min-width: 768px) {
+              d-title {
+                padding: 4rem 0 1.5rem;
+                text-align: center; /* Ensure it is center-aligned for larger screens too */
+              }
+            }
+
+            d-title h1 {
+              grid-column: text;
+              font-size: 28px;
+              font-weight: 700;
+              line-height: 1.1em;
+              margin: 0 0 0.5rem;
+            }
+
+            @media(min-width: 768px) {
+              d-title h1 {
+                font-size: 35px;
+              }
+            }
+
+            d-title p {
+              font-weight: 300;
+              font-size: 1.2rem;
+              line-height: 1.55em;
+              grid-column: text;
+            }
+
+            d-title .status {
+              font-size: 12px;
+              color: #009688;
+              opacity: 0.8;
+              grid-column: kicker;
+            }
+
+            d-title .status span {
+              line-height: 1;
+              display: inline-block;
+              padding: 6px 0;
+              border-bottom: 1px solid #80cbc4;
+              font-size: 11px;
+              text-transform: uppercase;
+            }
+
+            d-byline {
+              contain: style;
+              overflow: hidden;
+              border-top: 1px solid rgba(0, 0, 0, 0.05);
+              font-size: 0.8rem;
+              line-height: 1.8em;
+              padding: 1.5rem 0;
+              min-height: 1.8em;
+            }
+
+
+            d-byline .byline {
+              grid-template-columns: 1fr 1fr;
+              grid-column: text;
+            }
+
+            @media(min-width: 768px) {
+              d-byline .byline {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+              }
+            }
+
+            d-byline .authors-affiliations {
+              grid-column-end: span 2;
+              grid-template-columns: 1fr 1fr;
+              margin-bottom: 1em;
+            }
+
+            @media(min-width: 768px) {
+              d-byline .authors-affiliations {
+                margin-bottom: 0;
+              }
+            }
+
+            d-byline h3 {
+              font-size: 0.6rem;
+              font-weight: 400;
+              color: rgba(0, 0, 0, 0.5);
+              margin: 0;
+              text-transform: uppercase;
+            }
+
+            d-byline p {
+              margin: 0;
+            }
+
+            d-byline a,
+            d-article d-byline a {
+              color: rgba(0, 0, 0, 0.8);
+              text-decoration: none;
+              border-bottom: none;
+            }
+
+            d-article d-byline a:hover {
+              text-decoration: underline;
+              border-bottom: none;
+            }
+
+            d-byline p.author {
+              font-weight: 500;
+            }
+
+            d-byline .affiliations {
+
+            }
+
+            d-article {
+              contain: layout style;
+              overflow-x: hidden;
+              border-top: 1px solid rgba(0, 0, 0, 0.1);
+              padding-top: 2rem;
+              color: rgba(0, 0, 0, 0.8);
+            }
+
+            d-article > * {
+              grid-column: text;
+            }
+
+            @media(min-width: 768px) {
+              d-article {
+                font-size: 16px;
+              }
+            }
+
+            @media(min-width: 1024px) {
+              d-article {
+                font-size: 1.06rem;
+                line-height: 1.7em;
+              }
+            }
+
+            /* ------------------------------- */
+            /* -------------- H2 --------------*/
+
+            d-article .marker {
+              text-decoration: none;
+              border: none;
+              counter-reset: section;
+              grid-column: kicker;
+              line-height: 1.7em;
+            }
+
+            d-article .marker:hover {
+              border: none;
+            }
+
+            d-article .marker span {
+              padding: 0 3px 4px;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+              position: relative;
+              top: 4px;
+            }
+
+            d-article .marker:hover span {
+              color: rgba(0, 0, 0, 0.7);
+              border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+            }
+
+            d-article h2 {
+              font-weight: 600;
+              font-size: 24px;
+              line-height: 1.25em;
+              margin: 2rem 0 1.5rem 0;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+              padding-bottom: 1rem;
+            }
+
+            @media(min-width: 1024px) {
+              d-article h2 {
+                font-size: 36px;
+              }
+            }
+
+            /* ------------------------------- */
+            /* -------------- H3 --------------*/
+            d-article h3 {
+              font-weight: 700;
+              font-size: 18px;
+              line-height: 1.4em;
+              margin-bottom: 1em;
+              margin-top: 2em;
+            }
+
+            @media(min-width: 1024px) {
+              d-article h3 {
+                font-size: 20px;
+              }
+            }
+
+            /* ------------------------------- */
+            /* -------------- H4 --------------*/
+            d-article h4 {
+              font-weight: 600;
+              text-transform: uppercase;
+              font-size: 14px;
+              line-height: 1.4em;
+            }
+
+            d-article a {
+              color: inherit;
+            }
+
+            d-article p,
+            d-article ul,
+            d-article ol,
+            d-article blockquote {
+              margin-top: 0;
+              margin-bottom: 1em;
+              margin-left: 0;
+              margin-right: 0;
+            }
+
+            d-article blockquote {
+              border-left: 2px solid rgba(0, 0, 0, 0.2);
+              padding-left: 2em;
+              font-style: italic;
+              color: rgba(0, 0, 0, 0.6);
+            }
+
+            d-article a {
+              border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+              text-decoration: none;
+            }
+
+            d-article a:hover {
+              border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+            }
+
+            d-article .link {
+              text-decoration: underline;
+              cursor: pointer;
+            }
+
+            d-article ul,
+            d-article ol {
+              padding-left: 24px;
+            }
+
+            d-article li {
+              margin-bottom: 1em;
+              margin-left: 0;
+              padding-left: 0;
+            }
+
+            d-article li:last-child {
+              margin-bottom: 0;
+            }
+
+            d-article pre {
+              font-size: 14px;
+              margin-bottom: 20px;
+            }
+
+            d-article hr {
+              grid-column: screen;
+              width: 100%;
+              border: none;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+              margin-top: 60px;
+              margin-bottom: 60px;
+            }
+
+            d-article section {
+              margin-top: 60px;
+              margin-bottom: 60px;
+            }
+
+            d-article span.equation-mimic {
+              font-family: georgia;
+              font-size: 115%;
+              font-style: italic;
+            }
+
+            d-article > d-code,
+            d-article section > d-code  {
+              display: block;
+            }
+
+            d-article > d-math[block],
+            d-article section > d-math[block]  {
+              display: block;
+            }
+
+            @media (max-width: 768px) {
+              d-article > d-code,
+              d-article section > d-code,
+              d-article > d-math[block],
+              d-article section > d-math[block] {
+                  overflow-x: scroll;
+                  -ms-overflow-style: none;  // IE 10+
+                  overflow: -moz-scrollbars-none;  // Firefox
+              }
+
+              d-article > d-code::-webkit-scrollbar,
+              d-article section > d-code::-webkit-scrollbar,
+              d-article > d-math[block]::-webkit-scrollbar,
+              d-article section > d-math[block]::-webkit-scrollbar {
+                display: none;  // Safari and Chrome
+              }
+            }
+
+            d-article .citation {
+              color: #668;
+              cursor: pointer;
+            }
+
+            d-include {
+              width: auto;
+              display: block;
+            }
+
+            d-figure {
+              contain: layout style;
+            }
+
+            /* ------------------------------- */
+            /* ------------- KateX ------------*/
+            .katex, .katex-prerendered {
+              contain: style;
+              display: inline-block;
+            }
+
+            /* ------------------------------- */
+            /* ------------ Tables ------------*/
+            d-article table {
+              border-collapse: collapse;
+              margin-bottom: 1.5rem;
+              border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            }
+
+            d-article table th {
+              border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            }
+
+            d-article table td {
+              border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            d-article table tr:last-of-type td {
+              border-bottom: none;
+            }
+
+            d-article table th,
+            d-article table td {
+              font-size: 15px;
+              padding: 2px 8px;
+            }
+
+            d-article table tbody :first-child td {
+              padding-top: 2px;
+            }
+
+            span.katex-display {
+              text-align: left;
+              padding: 8px 0 8px 0;
+              margin: 0.5em 0 0.5em 1em;
+            }
+
+            span.katex {
+              -webkit-font-smoothing: antialiased;
+              color: rgba(0, 0, 0, 0.8);
+              font-size: 1.18em;
+            }
+
+            @media print {
+
+              @page {
+                size: 8in 11in;
+                @bottom-right {
+                  content: counter(page) " of " counter(pages);
+                }
+              }
+
+              html {
+                /* no general margins -- CSS Grid takes care of those */
+              }
+
+              p, code {
+                page-break-inside: avoid;
+              }
+
+              h2, h3 {
+                page-break-after: avoid;
+              }
+
+              d-header {
+                visibility: hidden;
+              }
+
+              d-footer {
+                display: none!important;
+              }
+            }
+        </style>
+<style>
+        /* ---------------------------------------------- */
+        /* HERO LAYOUT */
+        /* ---------------------------------------------- */
+            #compare-caption {
+                grid-column: kicker;
+                border-top: solid 1px rgba(0, 0, 0, 0.1);
+                padding-top: 1rem;
+                margin-top: 0;
+            }
+
+            #compare-figure {
+                border-top: solid 1px rgba(0, 0, 0, 0.1);
+                padding-top: 1rem;
+                margin-top: 0;
+            }
+
+            #compare_play_button {
+                margin-left: 20px;
+                padding: 0 8px;
+                background-color: rgba(255, 130, 0);
+                border-radius: 4px;
+                border: none;
+                color: white;
+                height: 32px;
+                font-size: 13px;
+                text-transform: uppercase;
+                width: 100px;
+            }
+
+            #compare_play_button[disabled] {
+                opacity: 0.5;
+            }
+
+            figure#compare-figure {
+                grid-column: text;
+                display: grid;
+                grid-column-gap: inherit;
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                margin-bottom: 0;
+            }
+
+            #compare-figure svg {
+                width: 100%;
+                height: auto;
+            }
+
+            #compare-figure h4 {
+                margin: 0 0 0.5em 0;
+            }
+
+            #compare-figure d-math span.katex-display {
+                padding: 0;
+                margin: 0;
+            }
+
+            #cliffworld-mc > div {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                grid-gap: 20px;
+            }
+
+            figure {
+                overflow-x: scroll;
+            }
+
+            figure figcaption,
+            figure .figcaption {
+                margin-bottom: 1em;
+            }
+
+            figure .column-heading {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                padding-bottom: 8px;
+                margin: 0;
+            }
+
+            /* ------------------------------- */
+            /* ------ Pre-Existing CSS ------- */
+            #cliffworld-td {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                grid-gap: 20px;
+            }
+
+            #cliffworld-trajectories {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                grid-gap: 20px;
+            }
+
+            #cliff_iter .cell rect {
+                fill: #eee;
+            }
+
+            .cell rect {
+                fill: #eee;
+            }
+
+            .eq-grid {
+                grid-column: text-start / end;
+                padding: 10px;
+                display: grid;
+                justify-content: start;
+                grid-row-gap: 10px;
+                overflow-x: scroll;
+                margin-bottom: 1em;
+            }
+
+            .eq-grid d-math {
+                font-size: 120%;
+            }
+
+            .eq-grid figcaption d-math {
+                font-size: 100%;
+            }
+
+            .eq-grid figcaption {
+            }
+
+            .eq-grid .expansion-marker {
+                border: 1px solid #ccc;
+                border-bottom: none;
+                height: 6px;
+                width: 100%;
+                margin-top: 6px;
+                margin-bottom: 6px;
+            }
+
+            .eq-grid .faded {
+                opacity: 0.5;
+            }
+
+            svg {
+                user-select: none;
+            }
+
+            .two-column-math img {
+                margin-bottom: 1em;
+            }
+
+            @media (min-width: 768px) {
+                .two-column-math img {
+                    margin-bottom: initial;
+                }
+                .two-column-math .wrapper {
+                    margin: 0 auto;
+                    display: grid;
+                    grid-template-columns: 0.4fr 1fr;
+                    grid-auto-flow: row;
+                    grid-gap: 1em;
+                }
+            }
+        </style>
+<!-- COMMENTING AS THEY ARE NOT REQUIRED
+        <style type="text/css">@import "vis/playground.css";</style>
+        <script src="vis/js/d3.min.js" charset="utf-8"></script>
+        <script src="vis/js/underscore.js" charset="utf-8"></script>
+        <script src="vis/js/rounding.js" charset="utf-8"></script>
+        <script src="vis/util.js" charset="utf-8"></script>
+        <script src="vis/GridWorld.js" charset="utf-8"></script>
+        <script src="vis/LearnQV.js" charset="utf-8"></script>
+        <script src="vis/compare.js" charset="utf-8"></script> -->
+<link crossorigin="anonymous" href="https://distill.pub/third-party/katex/katex.min.css" rel="stylesheet"/>
+<link href="../india.ico" rel="icon" type="image/x-icon"/>
+<link href="/rss.xml" rel="alternate" title="Articles from Distill" type="application/rss+xml"/>
+<link href="" rel="canonical"/> <!-- TODO - Put the Real Site Link after it is HOSTED -->
+<title>Shortage of Skilled Agriculture Researchers</title>
+<!--  https://schema.org/Article -->
+<meta content="Demand for skilled agriculture researchers exceeds supply" itemprop="description" property="description"/>
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta content="article" property="og:type"/>
+<meta content="Shortage of Skilled Agriculture Researchers" property="og:title"/>
+<meta content="Demand for skilled agriculture researchers exceeds supply" property="og:description"/>
+<meta content="" property="og:url"/> <!-- TODO - Put the Real Site Link after it is HOSTED -->
+<meta content="" property="og:image"/> <!-- TODO - Put your Photo -->
+<meta content="en_US" property="og:locale"/>
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Shortage of Skilled Agriculture Researchers" name="twitter:title"/>
+<meta content="Demand for skilled agriculture researchers exceeds supply" name="twitter:description"/>
+<meta content="" name="twitter:url"/> <!-- TODO - Put the Real Site Link after it is HOSTED -->
+<meta content="" name="twitter:image"/> <!-- TODO - Put your Photo -->
+<meta content="560" name="twitter:image:width"/> <!-- TODO - May need to change this depending upon the Photo -->
+<meta content="295" name="twitter:image:height"/> <!-- TODO - May need to change this depending upon the Photo -->
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<!-- TODO - IF NEEDED, later include from https://distill.pub/2019/paths-perspective-on-value-learning/ -->
+</head>
+<body distill-prerendered="">
+<button id="myBtn" onclick="topFunction()" title="Go to top"><i class="fa fa-chevron-up"></i> </button>
+<script>
+        // Get the button
+        let mybutton = document.getElementById("myBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+          if (document.body.scrollTop >= 10 || document.documentElement.scrollTop >= 10) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+<!-------------------------------------------------------->
+<!-- We DO NOT need Distill Header here for our purpose -->
+<!-------------------------------------------------------->
+<d-front-matter>
+<script type="text/json">{
+          "title": "Shortage of Skilled Agriculture Researchers",
+          "description": "Demand for skilled agriculture researchers exceeds supply",
+          "katex": {
+            "strict": false,
+            "delimiters": [
+              {
+                "left": "$",
+                "right": "$",
+                "display": false
+              },
+              {
+                "left": "$$",
+                "right": "$$",
+                "display": true
+              }
+            ]
+          }
+          }</script>
+</d-front-matter>
+<!------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------->
+<style>
+            :root {
+                  --agriculture-code: 47,132,69;
+                  --agriculture-r: 47;
+                  --agriculture-g: 132;
+                  --agriculture-b: 69;
+                  --agriculture-bg: rgba(47,132,69,0.1);
+                  --agriculture-color: rgba(47,132,69,1);
+                  --agriculture-hover-bg: rgba(47,132,69,0.5);
+
+                  --ayush-code: 186,147,28;
+                  --ayush-r: 186;
+                  --ayush-g: 147;
+                  --ayush-b: 28;
+                  --ayush-bg: rgba(186,147,28,0.1);
+                  --ayush-color: rgba(186,147,28,1);
+                  --ayush-hover-bg: rgba(186,147,28,0.5);
+
+                  --chemicals-code: 208,55,31;
+                  --chemicals-r: 208;
+                  --chemicals-g: 55;
+                  --chemicals-b: 31;
+                  --chemicals-bg: rgba(208,55,31,0.1);
+                  --chemicals-color: rgba(208,55,31,1);
+                  --chemicals-hover-bg: rgba(208,55,31,0.5);
+
+                  --civil_aviation-code: 0,82,165;
+                  --civil_aviation-r: 0;
+                  --civil_aviation-g: 82;
+                  --civil_aviation-b: 165;
+                  --civil_aviation-bg: rgba(0,82,165,0.1);
+                  --civil_aviation-color: rgba(0,82,165,1);
+                  --civil_aviation-hover-bg: rgba(0,82,165,0.5);
+
+                  --coal-code: 33,41,48;
+                  --coal-r: 33;
+                  --coal-g: 41;
+                  --coal-b: 48;
+                  --coal-bg: rgba(33,41,48,0.1);
+                  --coal-color: rgba(33,41,48,1);
+                  --coal-hover-bg: rgba(33,41,48,0.5);
+
+                  --commerce-code: 153,0,76;
+                  --commerce-r: 153;
+                  --commerce-g: 0;
+                  --commerce-b: 76;
+                  --commerce-bg: rgba(153,0,76,0.1);
+                  --commerce-color: rgba(153,0,76,1);
+                  --commerce-hover-bg: rgba(153,0,76,0.5);
+
+                  --communications-code: 61,136,137;
+                  --communications-r: 61;
+                  --communications-g: 136;
+                  --communications-b: 137;
+                  --communications-bg: rgba(61,136,137,0.1);
+                  --communications-color: rgba(61,136,137,1);
+                  --communications-hover-bg: rgba(61,136,137,0.5);
+
+                  --consumer_affairs-code: 210,105,30;
+                  --consumer_affairs-r: 210;
+                  --consumer_affairs-g: 105;
+                  --consumer_affairs-b: 30;
+                  --consumer_affairs-bg: rgba(210,105,30,0.1);
+                  --consumer_affairs-color: rgba(210,105,30,1);
+                  --consumer_affairs-hover-bg: rgba(210,105,30,0.5);
+
+                  --corporate_affairs-code: 0,0,100;
+                  --corporate_affairs-r: 0;
+                  --corporate_affairs-g: 0;
+                  --corporate_affairs-b: 100;
+                  --corporate_affairs-bg: rgba(0,0,100,0.1);
+                  --corporate_affairs-color: rgba(0,0,100,1);
+                  --corporate_affairs-hover-bg: rgba(0,0,100,0.5);
+
+                  --culture-code: 146,5,146;
+                  --culture-r: 146;
+                  --culture-g: 5;
+                  --culture-b: 146;
+                  --culture-bg: rgba(146,5,146,0.1);
+                  --culture-color: rgba(146,5,146,1);
+                  --culture-hover-bg: rgba(146,5,146,0.5);
+
+                  --defence-code: 92,92,4;
+                  --defence-r: 92;
+                  --defence-g: 92;
+                  --defence-b: 4;
+                  --defence-bg: rgba(92,92,4,0.1);
+                  --defence-color: rgba(92,92,4,1);
+                  --defence-hover-bg: rgba(92,92,4,0.5);
+
+                  --develop_northeast-code: 150,0,0;
+                  --develop_northeast-r: 150;
+                  --develop_northeast-g: 0;
+                  --develop_northeast-b: 0;
+                  --develop_northeast-bg: rgba(150,0,0,0.1);
+                  --develop_northeast-color: rgba(150,0,0,1);
+                  --develop_northeast-hover-bg: rgba(150,0,0,0.5);
+
+                  --earth_sciences-code: 86,86,142;
+                  --earth_sciences-r: 86;
+                  --earth_sciences-g: 86;
+                  --earth_sciences-b: 142;
+                  --earth_sciences-bg: rgba(86,86,142,0.1);
+                  --earth_sciences-color: rgba(86,86,142,1);
+                  --earth_sciences-hover-bg: rgba(86,86,142,0.5);
+
+                  --education-code: 226,128,163;
+                  --education-r: 226;
+                  --education-g: 128;
+                  --education-b: 163;
+                  --education-bg: rgba(226,128,163,0.1);
+                  --education-color: rgba(226,128,163,1);
+                  --education-hover-bg: rgba(226,128,163,0.5);
+
+                  --electronics_it-code: 41,128,185;
+                  --electronics_it-r: 41;
+                  --electronics_it-g: 128;
+                  --electronics_it-b: 185;
+                  --electronics_it-bg: rgba(41,128,185,0.1);
+                  --electronics_it-color: rgba(41,128,185,1);
+                  --electronics_it-hover-bg: rgba(41,128,185,0.5);
+
+                  --environment-code: 0,153,153;
+                  --environment-r: 0;
+                  --environment-g: 153;
+                  --environment-b: 153;
+                  --environment-bg: rgba(0,153,153,0.1);
+                  --environment-color: rgba(0,153,153,1);
+                  --environment-hover-bg: rgba(0,153,153,0.5);
+
+                  --external_affairs-code: 215,86,86;
+                  --external_affairs-r: 215;
+                  --external_affairs-g: 86;
+                  --external_affairs-b: 86;
+                  --external_affairs-bg: rgba(215,86,86,0.1);
+                  --external_affairs-color: rgba(215,86,86,1);
+                  --external_affairs-hover-bg: rgba(215,86,86,0.5);
+
+                  --finance-code: 199,159,0;
+                  --finance-r: 199;
+                  --finance-g: 159;
+                  --finance-b: 0;
+                  --finance-bg: rgba(199,159,0,0.1);
+                  --finance-color: rgba(199,159,0,1);
+                  --finance-hover-bg: rgba(199,159,0,0.5);
+
+                  --livestock-code: 206,135,135;
+                  --livestock-r: 206;
+                  --livestock-g: 135;
+                  --livestock-b: 135;
+                  --livestock-bg: rgba(206,135,135,0.1);
+                  --livestock-color: rgba(206,135,135,1);
+                  --livestock-hover-bg: rgba(206,135,135,0.5);
+
+                  --food_processing-code: 107,144,43;
+                  --food_processing-r: 107;
+                  --food_processing-g: 144;
+                  --food_processing-b: 43;
+                  --food_processing-bg: rgba(107,144,43,0.1);
+                  --food_processing-color: rgba(107,144,43,1);
+                  --food_processing-hover-bg: rgba(107,144,43,0.5);
+
+                  --health-code: 18,116,202;
+                  --health-r: 18;
+                  --health-g: 116;
+                  --health-b: 202;
+                  --health-bg: rgba(18,116,202,0.1);
+                  --health-color: rgba(18,116,202,1);
+                  --health-hover-bg: rgba(18,116,202,0.5);
+
+                  --heavy_industries-code: 127,140,141;
+                  --heavy_industries-r: 127;
+                  --heavy_industries-g: 140;
+                  --heavy_industries-b: 141;
+                  --heavy_industries-bg: rgba(127,140,141,0.1);
+                  --heavy_industries-color: rgba(127,140,141,1);
+                  --heavy_industries-hover-bg: rgba(127,140,141,0.5);
+
+                  --home_affairs-code: 188,82,68;
+                  --home_affairs-r: 188;
+                  --home_affairs-g: 82;
+                  --home_affairs-b: 68;
+                  --home_affairs-bg: rgba(188,82,68,0.1);
+                  --home_affairs-color: rgba(188,82,68,1);
+                  --home_affairs-hover-bg: rgba(188,82,68,0.5);
+
+                  --housing_habitat-code: 137,71,5;
+                  --housing_habitat-r: 137;
+                  --housing_habitat-g: 71;
+                  --housing_habitat-b: 5;
+                  --housing_habitat-bg: rgba(137,71,5,0.1);
+                  --housing_habitat-color: rgba(137,71,5,1);
+                  --housing_habitat-hover-bg: rgba(137,71,5,0.5);
+
+                  --information_media-code: 112,0,132;
+                  --information_media-r: 112;
+                  --information_media-g: 0;
+                  --information_media-b: 132;
+                  --information_media-bg: rgba(112,0,132,0.1);
+                  --information_media-color: rgba(112,0,132,1);
+                  --information_media-hover-bg: rgba(112,0,132,0.5);
+
+                  --jal-code: 52,152,219;
+                  --jal-r: 52;
+                  --jal-g: 152;
+                  --jal-b: 219;
+                  --jal-bg: rgba(52,152,219,0.1);
+                  --jal-color: rgba(52,152,219,1);
+                  --jal-hover-bg: rgba(52,152,219,0.5);
+
+                  --labour-code: 202,44,63;
+                  --labour-r: 202;
+                  --labour-g: 44;
+                  --labour-b: 63;
+                  --labour-bg: rgba(202,44,63,0.1);
+                  --labour-color: rgba(202,44,63,1);
+                  --labour-hover-bg: rgba(202,44,63,0.5);
+
+                  --law-code: 149,102,66;
+                  --law-r: 149;
+                  --law-g: 102;
+                  --law-b: 66;
+                  --law-bg: rgba(149,102,66,0.1);
+                  --law-color: rgba(149,102,66,1);
+                  --law-hover-bg: rgba(149,102,66,0.5);
+
+                  --MSMEs-code: 45,110,80;
+                  --MSMEs-r: 45;
+                  --MSMEs-g: 110;
+                  --MSMEs-b: 80;
+                  --MSMEs-bg: rgba(45,110,80,0.1);
+                  --MSMEs-color: rgba(45,110,80,1);
+                  --MSMEs-hover-bg: rgba(45,110,80,0.5);
+
+                  --mines-code: 66,52,41;
+                  --mines-r: 66;
+                  --mines-g: 52;
+                  --mines-b: 41;
+                  --mines-bg: rgba(66,52,41,0.1);
+                  --mines-color: rgba(66,52,41,1);
+                  --mines-hover-bg: rgba(66,52,41,0.5);
+
+                  --minority_affairs-code: 139,83,190;
+                  --minority_affairs-r: 139;
+                  --minority_affairs-g: 83;
+                  --minority_affairs-b: 190;
+                  --minority_affairs-bg: rgba(139,83,190,0.1);
+                  --minority_affairs-color: rgba(139,83,190,1);
+                  --minority_affairs-hover-bg: rgba(139,83,190,0.5);
+
+                  --new_renewables-code: 55,155,75;
+                  --new_renewables-r: 55;
+                  --new_renewables-g: 155;
+                  --new_renewables-b: 75;
+                  --new_renewables-bg: rgba(55,155,75,0.1);
+                  --new_renewables-color: rgba(55,155,75,1);
+                  --new_renewables-hover-bg: rgba(55,155,75,0.5);
+
+                  --panchayati_raj-code: 221,45,74;
+                  --panchayati_raj-r: 221;
+                  --panchayati_raj-g: 45;
+                  --panchayati_raj-b: 74;
+                  --panchayati_raj-bg: rgba(221,45,74,0.1);
+                  --panchayati_raj-color: rgba(221,45,74,1);
+                  --panchayati_raj-hover-bg: rgba(221,45,74,0.5);
+
+                  --parliamentary_affairs-code: 195,147,33;
+                  --parliamentary_affairs-r: 195;
+                  --parliamentary_affairs-g: 147;
+                  --parliamentary_affairs-b: 33;
+                  --parliamentary_affairs-bg: rgba(195,147,33,0.1);
+                  --parliamentary_affairs-color: rgba(195,147,33,1);
+                  --parliamentary_affairs-hover-bg: rgba(195,147,33,0.5);
+
+                  --people_affairs-code: 199,127,115;
+                  --people_affairs-r: 199;
+                  --people_affairs-g: 127;
+                  --people_affairs-b: 115;
+                  --people_affairs-bg: rgba(199,127,115,0.1);
+                  --people_affairs-color: rgba(199,127,115,1);
+                  --people_affairs-hover-bg: rgba(199,127,115,0.5);
+
+                  --petroleum_gas-code: 22,160,133;
+                  --petroleum_gas-r: 22;
+                  --petroleum_gas-g: 160;
+                  --petroleum_gas-b: 133;
+                  --petroleum_gas-bg: rgba(22,160,133,0.1);
+                  --petroleum_gas-color: rgba(22,160,133,1);
+                  --petroleum_gas-hover-bg: rgba(22,160,133,0.5);
+
+                  --power-code: 78,108,160;
+                  --power-r: 78;
+                  --power-g: 108;
+                  --power-b: 160;
+                  --power-bg: rgba(78,108,160,0.1);
+                  --power-color: rgba(78,108,160,1);
+                  --power-hover-bg: rgba(78,108,160,0.5);
+
+                  --railways-code: 150,46,48;
+                  --railways-r: 150;
+                  --railways-g: 46;
+                  --railways-b: 48;
+                  --railways-bg: rgba(150,46,48,0.1);
+                  --railways-color: rgba(150,46,48,1);
+                  --railways-hover-bg: rgba(150,46,48,0.5);
+
+                  --road_highways-code: 99,99,99;
+                  --road_highways-r: 99;
+                  --road_highways-g: 99;
+                  --road_highways-b: 99;
+                  --road_highways-bg: rgba(99,99,99,0.1);
+                  --road_highways-color: rgba(99,99,99,1);
+                  --road_highways-hover-bg: rgba(99,99,99,0.5);
+
+                  --rural_development-code: 136,149,49;
+                  --rural_development-r: 136;
+                  --rural_development-g: 149;
+                  --rural_development-b: 49;
+                  --rural_development-bg: rgba(136,149,49,0.1);
+                  --rural_development-color: rgba(136,149,49,1);
+                  --rural_development-hover-bg: rgba(136,149,49,0.5);
+
+                  --science_tech-code: 55,80,134;
+                  --science_tech-r: 55;
+                  --science_tech-g: 80;
+                  --science_tech-b: 134;
+                  --science_tech-bg: rgba(55,80,134,0.1);
+                  --science_tech-color: rgba(55,80,134,1);
+                  --science_tech-hover-bg: rgba(55,80,134,0.5);
+
+                  --shipping-code: 82,146,169;
+                  --shipping-r: 82;
+                  --shipping-g: 146;
+                  --shipping-b: 169;
+                  --shipping-bg: rgba(82,146,169,0.1);
+                  --shipping-color: rgba(82,146,169,1);
+                  --shipping-hover-bg: rgba(82,146,169,0.5);
+
+                  --skill_startups-code: 192,40,98;
+                  --skill_startups-r: 192;
+                  --skill_startups-g: 40;
+                  --skill_startups-b: 98;
+                  --skill_startups-bg: rgba(192,40,98,0.1);
+                  --skill_startups-color: rgba(192,40,98,1);
+                  --skill_startups-hover-bg: rgba(192,40,98,0.5);
+
+                  --social_justice-code: 148,120,27;
+                  --social_justice-r: 148;
+                  --social_justice-g: 120;
+                  --social_justice-b: 27;
+                  --social_justice-bg: rgba(148,120,27,0.1);
+                  --social_justice-color: rgba(148,120,27,1);
+                  --social_justice-hover-bg: rgba(148,120,27,0.5);
+
+                  --space-code: 61,19,94;
+                  --space-r: 61;
+                  --space-g: 19;
+                  --space-b: 94;
+                  --space-bg: rgba(61,19,94,0.1);
+                  --space-color: rgba(61,19,94,1);
+                  --space-hover-bg: rgba(61,19,94,0.5);
+
+                  --statistics_analysis-code: 45,101,104;
+                  --statistics_analysis-r: 45;
+                  --statistics_analysis-g: 101;
+                  --statistics_analysis-b: 104;
+                  --statistics_analysis-bg: rgba(45,101,104,0.1);
+                  --statistics_analysis-color: rgba(45,101,104,1);
+                  --statistics_analysis-hover-bg: rgba(45,101,104,0.5);
+
+                  --steel-code: 114,133,150;
+                  --steel-r: 114;
+                  --steel-g: 133;
+                  --steel-b: 150;
+                  --steel-bg: rgba(114,133,150,0.1);
+                  --steel-color: rgba(114,133,150,1);
+
+                  --textiles-code: 179,115,134;
+                  --textiles-r: 179;
+                  --textiles-g: 115;
+                  --textiles-b: 134;
+                  --textiles-bg: rgba(179,115,134,0.1);
+                  --textiles-color: rgba(179,115,134,1);
+                  --textiles-hover-bg: rgba(179,115,134,0.5);
+
+                  --tourism-code: 243,156,18;
+                  --tourism-r: 243;
+                  --tourism-g: 156;
+                  --tourism-b: 18;
+                  --tourism-bg: rgba(243,156,18,0.1);
+                  --tourism-color: rgba(243,156,18,1);
+                  --tourism-hover-bg: rgba(243,156,18,0.5);
+
+                  --tribal_affairs-code: 200,29,26;
+                  --tribal_affairs-r: 200;
+                  --tribal_affairs-g: 29;
+                  --tribal_affairs-b: 26;
+                  --tribal_affairs-bg: rgba(200,29,26,0.1);
+                  --tribal_affairs-color: rgba(200,29,26,1);
+                  --tribal_affairs-hover-bg: rgba(200,29,26,0.5);
+
+                  --women_child-code: 216,97,146;
+                  --women_child-r: 216;
+                  --women_child-g: 97;
+                  --women_child-b: 146;
+                  --women_child-bg: rgba(216,97,146,0.1);
+                  --women_child-color: rgba(216,97,146,1);
+                  --women_child-hover-bg: rgba(216,97,146,0.5);
+
+                  --youth_sports-code: 33,144,33;
+                  --youth_sports-r: 33;
+                  --youth_sports-g: 144;
+                  --youth_sports-b: 33;
+                  --youth_sports-bg: rgba(33,144,33,0.1);
+                  --youth_sports-color: rgba(33,144,33,1);
+                  --youth_sports-hover-bg: rgba(33,144,33,0.5);
+            }
+        </style>
+<style>
+            .rounded-box-alphabets {
+                display: inline-block; /* Allows spans to wrap */
+                background-color: rgba(36,35,96, 0.1); /* Main Background */
+                color: rgb(36,35,96); /* White text */
+                font-weight: 600; /* Adjustable */
+                font-size: 10px; /* Adjustable */
+                padding: 1px 10px; /* Padding for spacing */
+                border-radius: 5px; /* Rounded edges */
+                margin: 3px; /* Spacing between spans */
+                white-space: nowrap; /* Ensures content doesn't break inside */
+            }
+            .rounded-box-alphabets:hover {
+                background-color: rgba(36,35,96, 0.5); /* Same as default */
+                color: rgba(36,35,96,1); /* Same as default */
+            }
+            a:focus, a:active, a:visited {
+                color: inherit; /* Keeps original text color */
+                background: inherit; /* Keeps original background */
+                text-decoration: none; /* No underline */
+                outline: none; /* Removes focus outline */
+            }
+            a:focus .rounded-box-alphabets,
+            a:active .rounded-box-alphabets,
+            a:visited .rounded-box-alphabets {
+                background-color: rgba(36,35,96, 0.1);
+                color: rgba(36,35,96, 1);
+            }
+
+            .focus-area-heading {
+                padding-left:20px;
+                padding-right:20px;
+                padding-top: 60px;
+                padding-bottom: 30px;
+            }
+            .focus-area-thematic-description {
+                font-weight:200;
+                font-size:20px;
+            }
+        </style>
+<style>
+            .authors-container {
+                display: flex; /* Flex ensures horizontal alignment */
+                justify-content: center; /* Centers the whole block */
+                align-items: center; /* Ensures vertical alignment */
+                flex-wrap: wrap; /* Allows responsiveness */
+                gap: 40px; /* Space between authors */
+                text-align: center; /* Ensures text alignment */
+                width: 100%; /* Ensures it takes full width of the parent container */
+                margin-top:12px;
+            }
+
+            .author {
+                text-align: center; /* Ensures expertise text is centered */
+                display: inline-block; /* Makes sure items are inline */
+            }
+
+            .expertise {
+                font-size: 11px;
+                font-family: 'VT323', monospace;
+                color: rgba(36,35,96, 0.5);
+                margin-top: -8px; /* Space between name and expertise */
+                display: block; /* Ensures expertise appears below the name */
+            }
+
+            .rounded-box-authors {
+                display: inline-block; /* Allows spans to wrap */
+                background-color: rgba(1,0,123, 0.1); /* Main Background */
+                color: rgb(1,0,123); /* White text */
+                font-weight: 300; /* Adjustable */
+                font-size: 16px; /* Adjustable */
+                padding: 7px 21px; /* Padding for spacing */
+                border-radius: 18px; /* Rounded edges */
+                margin: 3px; /* Spacing between spans */
+                white-space: nowrap; /* Ensures content doesn't break inside */
+                transition: background-color 0.3s ease-in-out;
+            }
+            .rounded-box-authors:hover {
+                background-color: rgba(1,0,123, 0.3); /* Same as default */
+                color: rgba(1,0,123,1); /* Same as default */
+            }
+            a:focus, a:active, a:visited {
+                color: inherit; /* Keeps original text color */
+                background: inherit; /* Keeps original background */
+                text-decoration: none; /* No underline */
+                outline: none; /* Removes focus outline */
+            }
+            a:focus .rounded-box-authors,
+            a:active .rounded-box-authors,
+            a:visited .rounded-box-authors {
+                background-color: rgba(1,0,123, 0.1);
+                color: rgba(1,0,123, 1);
+            }
+        </style>
+<style>
+            .heading {
+                font-size: 26px;
+                font-weight:600;
+                margin-bottom:0px;
+            }
+
+            .label-box-L {
+                background-color: #ff6666; /* Change this color as needed */
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px; /* Optional: rounded corners */
+                padding: 5px;
+                padding-left:10px;
+                padding-right:7px;
+                margin-right:20px;
+            }
+
+            .label-box-E {
+                background-color: #ff9933; /* Change this color as needed */
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px; /* Optional: rounded corners */
+                padding: 5px;
+                padding-left:10px;
+                padding-right:7px;
+                margin-right:20px;
+            }
+
+            .label-box-F {
+                background-color: #4c9900; /* Change this color as needed */
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                align-items: center;
+                justify-content: center;
+                border-radius: 5px; /* Optional: rounded corners */
+                padding: 5px;
+                padding-left:10px;
+                padding-right:7px;
+                margin-right:20px;
+            }
+        </style>
+<d-title class="focus-area-heading" style="background-image: linear-gradient(rgba(var(--space-code),.1) , white,white ,rgba(var(--space-code),.1));
+        color:var(--space-color); color:var(--space-color);
+        padding-top:90px;padding-bottom:30px;">
+<p class="heading">
+<!-- <span class="label-box-L"> L </span> -->
+                Shortage of Skilled Agriculture Researchers
+            </p>
+<!-- Thematic Description -->
+<p style="color:rgba(47,132,69,.7)">
+<span class="focus-area-thematic-description" style="color:var(--space-color);">
+                    Demand for skilled agriculture researchers exceeds supply
+                </span>
+</p>
+<!-- LINKING -->
+<p class="authors-container">
+<span class="author">
+<a href="../ministries_and_focus_areas.html">
+<span class="rounded-box-authors" style="border-radius: 18px;"> <b>Ministries</b> &amp; <b>Focus Areas</b> </span>
+</a>
+<br/>
+</span>
+</p>
+</d-title>
+<!------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------->
+<style>
+          .causal-chain-container {
+            width: 100%;  /* Allows it to expand to available width */
+            max-width: 900px;  /* Prevents SVG from exceeding 900px */
+            margin: auto;
+            text-align: center;
+          }
+
+          /* Rounded rectangles */
+          .causal-box {
+            fill: rgba(244, 162, 97, 0.8); /* Orange */
+            stroke: none; /* No border */
+            rx: 15;
+            ry: 15;
+          }
+
+          .effect {
+            fill: rgba(42, 157, 143, 0.8); /* Green */
+          }
+
+          .causal-text {
+            fill: black;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            text-anchor: middle;
+          }
+
+          /* Curved arrows */
+          .arrow-line {
+            stroke: #2a9d8f; /* Arrow color */
+            stroke-width: 3;
+            fill: none; /* No fill, only stroke */
+            marker-end: url(#arrowhead);
+          }
+
+          /* Arrow marker */
+          marker#arrowhead {
+            fill: #2a9d8f;
+          }
+          /* Custom colors for different causal elements */
+          .cause {
+               fill: rgba(244, 162, 97, 0.3); /* Orange with 80% opacity */
+          }
+          .effect {
+                fill: rgba(42, 157, 143, 0.3); /* Green with 80% opacity */
+          }
+        </style>
+<style>
+            term {
+                display: block;                /* Ensure block layout */
+                text-align: center;
+                border-bottom: 1px solid rgb(235, 235, 235);
+                line-height: normal;           /* Reset any strange compression */
+                margin: 0px 0;
+                position: relative;           /* Needed to layer the span on top */
+            }
+
+            term span {
+                background: rgb(252, 252, 253);
+                padding: 0 10px;
+                position: relative;
+                top: 0.6em;                    /* This LIFTS the text over the line */
+                z-index: 1;                    /* Ensure it's above the line */
+            }
+
+            .causal-factors {
+                color: rgba(0, 0, 0,.9);
+                font-size:14px;
+                font-weight:200;
+                text-align:center;
+                line-height:1.6;
+            }
+            .causal-factors b {
+                font-weight: 500;
+            }
+            .existing-schemes {
+                color: rgba(0, 0, 0,.5);
+                font-size:12.5px;
+                font-weight:200;
+                text-align:center;
+                line-height:1.6;
+                padding-left:50px;
+                padding-right:50px;
+            }
+            .existing-schemes b {
+                font-weight:500;
+            }
+        </style>
+<!-- SHANKAR (Add) -->
+<d-title style="color:rgb(36,35,96); padding-top: 30px;">
+<!-- <d-appendix style="border:0px;color:rgba(36,35,96,1);font-size:12px; margin-top:10px;
+        padding-top: 30px; padding-bottom:30px; padding-left:20px; padding-right:20px"> -->
+<p>
+<!------------------------------------------------------------->
+<!-- Causal Factors Paragraph Description -->
+<term>
+<span style="background:white;color:rgba(0, 0, 0, 0.5); font-size:15px;">
+                        Causal Factors
+                    </span>
+</term>
+<p class="causal-factors" id="causal-factors">A significant shortage of skilled scientists and researchers in specialized fields is driven by factors such as inadequate <b>funding for R&amp;D</b> and the <b>lack of industry-academia collaboration</b>. Additionally, limited exposure to cutting-edge technology and insufficient incentives for pursuing advanced research contribute to the problem. Institutional bottlenecks and a rigid educational framework further exacerbate these challenges.</p>
+</p>
+<p>
+<!------------------------------------------------------------->
+<!-- Existing Schemes Description -->
+<term>
+<span style="background:white;color:rgba(0, 0, 0,.5); font-size:15px;">
+                            Current Schemes / Missions
+                        </span>
+</term>
+<p class="existing-schemes" id="existing-schemes">The <b>INSPIRE Program</b> and <b>Atal Innovation Mission</b> aim to boost scientific research and innovation in India. However, they face implementation challenges such as inadequate infrastructure support and limited reach in rural and underserved areas, which hinder effective talent nurturing and retention.</p>
+</p>
+</d-title>
+<script src="index.bundle.js" type="text/javascript"></script>
+<!------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------->
+<style>
+            .proposed-intervention {
+                font-weight:300;
+                font-size:15px;
+                line-height:1.6;
+                text-align:center;
+            }
+            .proposed-intervention b {
+                font-weight:500;
+            }
+            .proposed-intervention-flow {
+                font-weight:300;
+                font-size:13px;
+                line-height:1.6;
+                text-align:center;
+                padding-left:30px;
+                padding-right:30px;
+                color: var(--space-color);
+            }
+            .proposed-intervention-future {
+                font-weight:300;
+                font-size:14px;
+                line-height:1.6;
+                margin-top:0px;
+                text-align:center;
+                padding-top:10px;
+                padding-left:30px;
+                padding-right:30px;
+                color: rgba(10, 10, 10, 1);
+            }
+
+            title-box  {
+                padding: 10px;
+                border-radius: 490em /15em ;
+                padding-left:20px;
+                padding-right:20px;
+                padding-top:12px;
+                padding-bottom:12px;
+            }
+
+        </style>
+<d-appendix style="border-top: 0px solid;border-left: 12px solid;border-right: 12px solid;
+        border-bottom: 0px solid;border-radius: 180px;border-color:white;
+        background-color:rgba(var(--space-code),.05); color:rgb(calc(var(--space-r) * 0.7), calc(var(--space-g) * 0.7), calc(var(--space-b) * 0.7),.9);
+        font-size:12px; margin-top:10px; padding-top: 40px; padding-bottom:40px; padding-left:20px; padding-right:20px">
+<!------------------------------------------------------------->
+<!-- Proposed Intervention -->
+<h1 style="font-size:25px; text-align:center; font-weight:500;">Proposal</h1>
+<p class="proposed-intervention" id="proposed-intervention" style="margin-top:8px;">A strategic intervention using <b>[INTV 1]</b> and <b>[INTV 7]</b> involves establishing a Central Policy-Making Body with a focus on R&amp;D funding and fostering industry-academia partnerships. This can be supported by <b>[INTV 8]</b>, which deepens the facilitation of global tech ecosystems. Establishing parallel support structures for skills and innovation will ensure systemic resilience against slow propagation.</p>
+<p class="proposed-intervention-flow" id="proposed-intervention-flow-mid-term">In the <b>mid-term</b>, the intervention can evolve to include widespread institutional adoption of <b>[INTV 7]</b>, enabling robust partnerships across industries and educational institutions.</p>
+<p class="proposed-intervention-flow" id="proposed-intervention-flow-long-term">In the <b>long-term</b>, the intervention will likely expand to include international collaborations and the development of a global R&amp;D hub, creating future-scaling effects and enhancing India's research capabilities.</p>
+<hr style="width:30%; margin-top:20px; border: none; border-top: 1px solid rgba(var(--space-code),.3);"/>
+<p class="proposed-intervention-future" id="proposed-intervention-future">This solution positions India as a <b>global leader</b> in research and innovation within <b>5–10 years</b>, leveraging its strengthened R&amp;D ecosystem.</p>
+</d-appendix>
+<script src="index.bundle.js" type="text/javascript"></script>
+<!-- New Styles -->
+<style>
+            .mechanism-design {
+                font-weight: 200;
+                font-size: 13px;
+                line-height: 1.7;
+                margin-top: 20px;
+                text-align: center;
+                font-family: monospace;
+                color: rgb(calc(var(--space-r) * 0.7), calc(var(--space-g) * 0.7), calc(var(--space-b) * 0.7),.8);
+                position: relative;
+                padding: 20px; /* Add padding so borders don’t overlap text */
+                display: inline-block; /* Ensures content does not stretch fully */
+            }
+
+            /* Top-left corner */
+            .mechanism-design::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 40px; /* Horizontal line */
+                height: 40px; /* Vertical line */
+                border-top: 4px solid rgba(calc(var(--space-r) * 0.7), calc(var(--space-g) * 0.7), calc(var(--space-b) * 0.7),0.5);
+                border-left: 0.3px solid rgba(calc(var(--space-r) * 0.7), calc(var(--space-g) * 0.7), calc(var(--space-b) * 0.7),0.5);
+                border-top-left-radius: 10px; /* Rounds the top-left corner */
+            }
+
+            /* Bottom-right corner */
+            .mechanism-design::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 40px; /* Horizontal line */
+                height: 40px; /* Vertical line */
+                border-bottom: 4px solid rgba(calc(var(--space-r) * 0.7), calc(var(--space-g) * 0.7), calc(var(--space-b) * 0.7),0.5);
+                border-right: 0.3px solid rgba(calc(var(--space-r) * 0.7), calc(var(--space-g) * 0.7), calc(var(--space-b) * 0.7),0.5);
+                border-bottom-right-radius: 10px; /* Rounds the bottom-right corner */
+            }
+        </style>
+<!-- SHANKAR (Add) -->
+<d-appendix style="border:0px;color:var(--space-color);font-size:12px; margin-top:10px;
+        padding-top: 10px; padding-bottom:10px; padding-left:10px; padding-right:10px">
+<!------------------------------------------------------------->
+<p class="mechanism-design" id="mechanism-design">Potential risks include insufficient policy coherence and funding allocation inefficiencies in <b>[INTV 1]</b>. To mitigate these, strengthening monitoring through <b>[INTV 3]</b> and continuous feedback mechanisms via <b>[INTV 4]</b> can enhance adaptability. Incorporating <b>[INTV 5]</b> for real-time tracking can also address emerging issues effectively.</p>
+</d-appendix>
+<script src="index.bundle.js" type="text/javascript"></script>
+<!------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------->
+<!-- <d-appendix id="appendix" style="font-size:12px; background-color:rgba(36,35,96,0.03);border-top:0px;padding-top:20px; padding-left:10px; padding-right:10px; margin-top:50px;">
+        </d-appendix>-->
+<!-- <d-bibliography src="bibliography.bib"></d-bibliography> -->
+<!------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------------->
+<d-byline style="background-color:rgb(255,255,255); border:0px">
+<div class="byline" style="grid-template-columns: 1fr; text-align:center">
+<div>
+<h3 style="color:rgb(130,130,130)">
+<span style="color:rgb(130,130,130)">   </span>
+                        A  
+                        <a href="https://github.com/distillpub" style="color:rgb(190,190,190)" target="_blank">Distill
+                        </a>
+                          ADAPTATION
+                    </h3>
+</div>
+</div>
+</d-byline>
+<script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+              ga('create', 'UA-83741880-1', 'auto');
+              ga('send', 'pageview');
+        </script>
+</body>
+</html>
